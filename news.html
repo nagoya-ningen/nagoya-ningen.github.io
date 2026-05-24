@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>お知らせ — ナゴヤ人間</title>
+<meta name="description" content="ナゴヤ人間からのお知らせ・更新情報の一覧。新しい記事、アプリのリリース、メディア掲載などを時系列で。">
+<meta name="theme-color" content="#FAFAF7">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ナゴヤ人間">
+<meta property="og:title" content="お知らせ — ナゴヤ人間">
+<meta property="og:description" content="ナゴヤ人間の更新情報・お知らせ一覧。">
+<meta property="og:image" content="https://nagoya-ningen.github.io/img/og/og-card.png">
+<meta property="og:url" content="https://nagoya-ningen.github.io/news.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@nagoya_ningen">
+<link rel="canonical" href="https://nagoya-ningen.github.io/news.html">
+
+<link rel="icon" type="image/png" href="img/character/bust.png">
+<link rel="apple-touch-icon" href="img/character/bust.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href="/" class="logo" aria-label="ナゴヤ人間 ホーム">
+      <span class="logo__mark" aria-hidden="true"></span>
+      <span class="logo__text">ナゴヤ人間</span>
+    </a>
+    <nav class="site-nav" aria-label="サイト内ナビゲーション">
+      <a href="/#about">編集思想</a>
+      <a href="/#magazines">マガジン</a>
+      <a href="/#products">つくったもの</a>
+      <a href="/news.html" aria-current="page">お知らせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="section section--narrow" aria-labelledby="news-title">
+  <div class="container">
+    <p class="kicker">News & updates</p>
+    <h1 id="news-title" class="section__title">お知らせ</h1>
+    <p class="section__lede">ナゴヤ人間の更新情報・新着記事・アプリのリリース・メディア掲載などを、新しい順に掲載しています。</p>
+
+    <ul class="news-list" id="newsList" data-limit="0" aria-live="polite">
+      <li class="news-list__loading">読み込み中…</li>
+    </ul>
+
+    <p class="section__more">
+      <a href="/" class="link-arrow link-arrow--muted">← ホームに戻る</a>
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div class="site-footer__brand">
+      <picture>
+        <source srcset="img/character/bust.webp" type="image/webp">
+        <img src="img/character/bust.png" alt="ナゴヤ人間 マスコット" width="80" height="80" loading="lazy" decoding="async">
+      </picture>
+      <div>
+        <p class="site-footer__name">ナゴヤ人間</p>
+        <p class="site-footer__tag">名古屋を素材に、思考する。</p>
+      </div>
+    </div>
+    <nav class="site-footer__sns" aria-label="SNS">
+      <a href="https://note.com/citypod_nagoya" target="_blank" rel="noopener">note</a>
+      <a href="https://www.threads.com/@nagoya_ningen" target="_blank" rel="noopener">Threads</a>
+      <a href="https://x.com/nagoya_ningen" target="_blank" rel="noopener">X</a>
+    </nav>
+    <p class="site-footer__copy">© 2026 ナゴヤ人間 / Nagoya Ningen.<br><span class="site-footer__sub">本サイト・各記事・各アプリは個人運営によるものです。</span></p>
+  </div>
+</footer>
+
+<script src="js/news.js" defer></script>
+</body>
+</html>
