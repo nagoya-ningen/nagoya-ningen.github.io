@@ -115,7 +115,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer;}
 .hero{padding:clamp(56px, 12vw, 120px) 0 clamp(48px, 10vw, 96px);}
 .hero__grid{
   display:grid;
-  grid-template-columns: minmax(0,1fr) clamp(220px, 30vw, 360px);
+  grid-template-columns: minmax(0,1fr) clamp(200px, 24vw, 300px);
   gap:clamp(24px, 5vw, 56px);
   align-items:center;
 }
@@ -143,13 +143,118 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer;}
   display:flex;justify-content:center;
 }
 .hero__figure img{
-  width:100%;max-width:360px;height:auto;
+  width:100%;max-width:300px;height:auto;
 }
 
 @media (max-width:780px){
   .hero__grid{grid-template-columns:1fr;gap:24px;}
-  .hero__figure{order:-1;max-width:240px;margin-inline:auto;}
-  .hero__figure img{max-width:240px;}
+  .hero__figure{order:-1;max-width:200px;margin-inline:auto;}
+  .hero__figure img{max-width:200px;}
+}
+
+/* ---------- About セクション（2列：本文＋人物カット） ---------- */
+.about-section .container.about-grid{
+  display:grid;
+  grid-template-columns: minmax(0, 1fr) clamp(220px, 30vw, 320px);
+  gap:clamp(40px, 5vw, 72px);
+  align-items:start;
+  max-width:1080px;
+}
+.about-content{ max-width:720px; }
+.about-figure{
+  margin:0;position:sticky;top:96px;
+  display:flex;flex-direction:column;gap:14px;align-items:center;
+}
+.about-figure picture{
+  display:block;width:100%;
+  background:var(--ink);
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid var(--ink);
+}
+.about-figure img{width:100%;height:auto;display:block;}
+.about-figure__cap{
+  font-size:11.5px;color:var(--sub);letter-spacing:.06em;
+  text-align:center;font-style:normal;font-weight:500;
+}
+@media (max-width:780px){
+  .about-section .container.about-grid{
+    grid-template-columns:1fr;
+    max-width:var(--reading);
+  }
+  .about-figure{position:static;max-width:240px;margin-inline:auto;}
+}
+
+/* ---------- 数字で見るセクション（活動stats） ---------- */
+.section--stats{padding-top:clamp(48px, 8vw, 96px);padding-bottom:clamp(48px, 8vw, 96px);}
+.section--stats .section__title{margin-bottom:32px;}
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+  border-radius:14px;
+  overflow:hidden;
+  margin:0;padding:0;list-style:none;
+}
+.stats__item{
+  background:var(--paper);
+  padding:32px 24px 28px;
+  display:flex;flex-direction:column;
+  min-height:172px;
+}
+.stats__item:hover{background:#fff;}
+.stats__num{
+  font-size:clamp(40px, 5.4vw, 60px);
+  font-weight:600;
+  letter-spacing:-.02em;
+  color:var(--ink);
+  font-feature-settings:"tnum";
+  line-height:1;
+  font-family:-apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}
+.stats__unit{
+  font-size:14px;color:var(--sub);font-weight:600;
+  margin-left:6px;letter-spacing:.04em;
+  display:inline-block;
+}
+.stats__label{
+  font-size:12.5px;color:var(--sub);
+  margin-top:auto;letter-spacing:.04em;line-height:1.6;
+  padding-top:18px;
+}
+.stats__label small{font-size:10.5px;display:block;margin-top:2px;color:var(--sub);}
+.stats__note{
+  margin:20px 0 0;font-size:13px;color:var(--sub);
+}
+@media (max-width:780px){
+  .stats{grid-template-columns:repeat(2, 1fr);}
+  .stats__item{padding:24px 18px 22px;min-height:148px;}
+}
+
+/* ---------- セクションヘッダー（左：テキスト、右：小カット） ---------- */
+.section-header{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:clamp(24px, 4vw, 48px);
+  align-items:end;
+  margin-bottom:40px;
+}
+.section-header__text{max-width:640px;}
+.section-header__figure{
+  margin:0;
+  background:var(--paper);
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid var(--line);
+  width:clamp(140px, 18vw, 200px);
+  align-self:end;
+}
+.section-header__figure img{width:100%;height:auto;display:block;}
+@media (max-width:780px){
+  .section-header{grid-template-columns:1fr;}
+  .section-header__figure{display:none;}
 }
 
 /* ---------- リンク（矢印つき） ---------- */
@@ -210,17 +315,21 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer;}
 .card-grid{
   display:grid;
   grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));
-  gap:1px;
-  background:var(--line);
+  gap:14px;
+  background:transparent;
+  border:none;
+}
+.card{
+  background:#fff;
   border:1px solid var(--line);
   border-radius:14px;
   overflow:hidden;
+  transition:transform .15s ease, box-shadow .15s ease;
 }
-.card{
-  background:var(--paper);
-  transition:background .2s ease;
+.card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 24px rgba(26,26,26,.06);
 }
-.card:hover{background:#fff;}
 .card__link{
   display:block;
   padding:28px 26px 30px;

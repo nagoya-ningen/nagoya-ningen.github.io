@@ -70,22 +70,58 @@
 </section>
 
 <!-- ナゴヤ人間とは -->
-<section id="about" class="section section--narrow" aria-labelledby="about-title">
-  <div class="container">
-    <p class="kicker">01 — About</p>
-    <h2 id="about-title" class="section__title">ナゴヤ人間とは</h2>
-    <div class="prose">
-      <p>名古屋・愛知を素材に書いている、個人運営の独立メディアです。2026年の4月から動いています。媒体は note が主で、X と Threads でも発信しています。</p>
-      <p>書いているのは、たとえば森道市場の運営構造、トヨタのEV戦略、減税日本20年、リニア開通後の都市像、「名古屋には何もない」と言われ続けることの解像度——テーマは横断しますが、対象はいつも名古屋・愛知です。</p>
-      <p>スタンスは決まっていて、「名古屋すごい」も「名古屋何もない」も書きません。<b>なぜそうなっているのか、を一段下に降りて構造で読む。</b>それがこのメディアの立ち位置です。</p>
-      <p>書き方も決まっています。</p>
-      <ol class="prose__list">
-        <li>まず、数字・固有名詞・一次情報など、事実から書きはじめる。</li>
-        <li>そのあとで、「なぜそうなっているのか」を構造で読む。</li>
-        <li>結論を断定せず、読み手に渡す問いで終わる。</li>
-      </ol>
-      <p>派手な煽りや、地元愛のアピールはしません。</p>
+<section id="about" class="section about-section" aria-labelledby="about-title">
+  <div class="container about-grid">
+    <div class="about-content">
+      <p class="kicker">01 — About</p>
+      <h2 id="about-title" class="section__title">ナゴヤ人間とは</h2>
+      <div class="prose">
+        <p>名古屋・愛知を素材に書いている、個人運営の独立メディアです。2026年の4月から動いています。媒体は note が主で、X・Threads・Instagram でも発信しています。</p>
+        <p>書いているのは、たとえば森道市場の運営構造、トヨタのEV戦略、減税日本20年、リニア開通後の都市像、「名古屋には何もない」と言われ続けることの解像度——テーマは横断しますが、対象はいつも名古屋・愛知です。</p>
+        <p>スタンスは決まっていて、「名古屋すごい」も「名古屋何もない」も書きません。<b>なぜそうなっているのか、を一段下に降りて構造で読む。</b>それがこのメディアの立ち位置です。</p>
+        <p>書き方も決まっています。</p>
+        <ol class="prose__list">
+          <li>まず、数字・固有名詞・一次情報など、事実から書きはじめる。</li>
+          <li>そのあとで、「なぜそうなっているのか」を構造で読む。</li>
+          <li>結論を断定せず、読み手に渡す問いで終わる。</li>
+        </ol>
+        <p>派手な煽りや、地元愛のアピールはしません。</p>
+      </div>
     </div>
+    <figure class="about-figure" aria-hidden="true">
+      <picture>
+        <source srcset="img/character/sitting.webp" type="image/webp">
+        <img src="img/character/sitting.png" alt="" width="320" height="400" loading="lazy" decoding="async">
+      </picture>
+      <figcaption class="about-figure__cap">考えながら、置いていく。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 活動 — 数字で見るナゴヤ人間 -->
+<section class="section section--stats" aria-labelledby="stats-title">
+  <div class="container">
+    <p class="kicker">By the numbers</p>
+    <h2 id="stats-title" class="section__title">これまでやってきたこと</h2>
+    <ul class="stats">
+      <li class="stats__item">
+        <span class="stats__num">82</span><span class="stats__unit">本</span>
+        <span class="stats__label">マガジン累計記事</span>
+      </li>
+      <li class="stats__item">
+        <span class="stats__num">4</span><span class="stats__unit">本</span>
+        <span class="stats__label">マガジン<br><small>継続2 ／ 完結2</small></span>
+      </li>
+      <li class="stats__item">
+        <span class="stats__num">2</span><span class="stats__unit">本</span>
+        <span class="stats__label">自社開発アプリ<br><small>森道ガイド ／ After party</small></span>
+      </li>
+      <li class="stats__item">
+        <span class="stats__num">4</span><span class="stats__unit">媒体</span>
+        <span class="stats__label">発信チャネル<br><small>note ／ X ／ Threads ／ IG</small></span>
+      </li>
+    </ul>
+    <p class="stats__note">2026年4月開始。週2〜3本のペースで note を更新し、SNSで日々の問いを置いています。</p>
   </div>
 </section>
 
@@ -144,9 +180,19 @@
 <!-- つくったもの（アプリ） -->
 <section id="products" class="section" aria-labelledby="products-title">
   <div class="container">
-    <p class="kicker">03 — つくったもの</p>
-    <h2 id="products-title" class="section__title">書く以外のしごと</h2>
-    <p class="section__lede">編集の延長線で開発したアプリ。森道市場2026という対象を、文章とは別の角度から扱うために、自分で組みました。</p>
+    <div class="section-header">
+      <div class="section-header__text">
+        <p class="kicker">03 — つくったもの</p>
+        <h2 id="products-title" class="section__title">書く以外のしごと</h2>
+        <p class="section__lede">編集の延長線で開発したアプリ。森道市場2026という対象を、文章とは別の角度から扱うために、自分で組みました。</p>
+      </div>
+      <figure class="section-header__figure" aria-hidden="true">
+        <picture>
+          <source srcset="img/character/listening.webp" type="image/webp">
+          <img src="img/character/listening.png" alt="" width="200" height="250" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+    </div>
 
     <ul class="product-list">
       <li class="product">
@@ -212,7 +258,7 @@
 <!-- 最新のお知らせ -->
 <section id="news" class="section section--narrow" aria-labelledby="news-title">
   <div class="container">
-    <p class="kicker">04 — お知らせ</p>
+    <p class="kicker">04 — News</p>
     <h2 id="news-title" class="section__title">最新の動き</h2>
 
     <ul class="news-list" id="newsList" aria-live="polite">
@@ -231,8 +277,8 @@
   <div class="container site-footer__inner">
     <div class="site-footer__brand">
       <picture>
-        <source srcset="img/character/bust.webp" type="image/webp">
-        <img src="img/character/bust.png" alt="ナゴヤ人間 マスコット" width="80" height="80" loading="lazy" decoding="async">
+        <source srcset="img/character/front.webp" type="image/webp">
+        <img src="img/character/front.png" alt="ナゴヤ人間 マスコット" width="80" height="80" loading="lazy" decoding="async">
       </picture>
       <div>
         <p class="site-footer__name">ナゴヤ人間</p>
