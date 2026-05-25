@@ -111,26 +111,44 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer;}
   font-family:ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
 }
 
-/* ---------- ヒーロー ---------- */
-.hero{padding:clamp(56px, 12vw, 120px) 0 clamp(48px, 10vw, 96px);}
-.hero__grid{
-  display:grid;
-  grid-template-columns: minmax(0,1fr) clamp(200px, 24vw, 300px);
-  gap:clamp(24px, 5vw, 56px);
-  align-items:center;
+/* ---------- ヒーロー（純テキスト型） ----------
+   装飾画像を置かず、文字組で密度と編集メディアの格を作る。
+   日本語の見出しが意味で割れるように word-break / overflow-wrap /
+   text-wrap を併用し、語の途中で割らせない要素は .nowrap で囲む。 */
+.hero{
+  padding:clamp(64px, 12vw, 128px) 0 clamp(56px, 10vw, 104px);
+}
+.hero__container{
+  max-width:780px;
+  margin-inline:auto;
 }
 .hero__headline{
-  font-size:var(--fs-display);
+  /* 中段の「都市・産業・文化の構造を」（12文字）がモバイルでも1行に
+     収まるよう、min を 24px に。clamp下限が小さすぎると視覚インパクトが
+     落ちるので、24px はモバイル見出しとしての妥協ラインとした。 */
+  font-size:clamp(24px, 5vw, 52px);
   font-weight:600;
-  letter-spacing:.01em;
-  line-height:1.35;
-  margin:0 0 24px;
+  letter-spacing:.015em;
+  line-height:1.45;
+  margin:0 0 28px;
+  word-break:keep-all;
+  overflow-wrap:anywhere;
+  text-wrap:pretty;
 }
 .hero__lede{
-  font-size:18px;line-height:1.85;
+  font-size:clamp(15px, 1.6vw, 18px);
+  line-height:1.9;
   color:var(--ink);
-  max-width:580px;
-  margin:0 0 28px;
+  max-width:32em;
+  margin:0 0 32px;
+  word-break:keep-all;
+  overflow-wrap:anywhere;
+}
+.hero__rule{
+  border:0;
+  border-top:1px solid var(--line);
+  margin:0 0 24px;
+  max-width:32em;
 }
 .hero__channels{
   display:flex;flex-wrap:wrap;
@@ -138,18 +156,14 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer;}
   margin:0;
   font-size:15px;
 }
-.hero__figure{
-  margin:0;
-  display:flex;justify-content:center;
-}
-.hero__figure img{
-  width:100%;max-width:300px;height:auto;
+.nowrap{
+  display:inline-block;
 }
 
-@media (max-width:780px){
-  .hero__grid{grid-template-columns:1fr;gap:24px;}
-  .hero__figure{order:-1;max-width:200px;margin-inline:auto;}
-  .hero__figure img{max-width:200px;}
+@media (max-width:560px){
+  .hero{padding-top:clamp(48px, 14vw, 80px);padding-bottom:64px;}
+  .hero__headline{line-height:1.5;letter-spacing:.01em;}
+  .hero__channels{gap:18px;font-size:14px;}
 }
 
 /* ---------- About セクション（2列：本文＋人物カット） ---------- */
