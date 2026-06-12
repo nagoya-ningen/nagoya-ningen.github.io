@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>お問い合わせ — ナゴヤ人間</title>
+<meta name="description" content="ナゴヤ人間へのお問い合わせ。取材・寄稿・スポンサーシップ・訂正/削除依頼など、どのようなご連絡でも受け付けています。">
+<meta name="theme-color" content="#FAFAF7">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ナゴヤ人間">
+<meta property="og:title" content="お問い合わせ — ナゴヤ人間">
+<meta property="og:description" content="ナゴヤ人間へのお問い合わせフォーム。取材・寄稿・スポンサー・訂正/削除など。">
+<meta property="og:image" content="https://nagoya-ningen.github.io/img/og/og-card.png">
+<meta property="og:url" content="https://nagoya-ningen.github.io/contact.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@nagoya_ningen">
+<link rel="canonical" href="https://nagoya-ningen.github.io/contact.html">
+
+<link rel="icon" type="image/png" href="img/character/bust.png">
+<link rel="apple-touch-icon" href="img/character/bust.png">
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+  /* ---------- お問い合わせページ専用の追加スタイル ---------- */
+  .contact-form{
+    margin-top:32px;
+    border:1px solid var(--line);
+    background:var(--paper);
+    border-radius:6px;
+    overflow:hidden;
+  }
+  .contact-form iframe{
+    display:block;
+    width:100%;
+    height:1180px;
+    border:0;
+  }
+  .contact-form__placeholder{
+    padding:40px 24px;
+    text-align:center;
+    color:var(--sub);
+    font-size:var(--fs-small);
+    line-height:1.9;
+  }
+  .contact-alt{
+    margin-top:40px;
+    padding:24px;
+    background:var(--soft);
+    border-radius:6px;
+  }
+  .contact-alt p{margin:0 0 8px;}
+  .contact-alt p:last-child{margin-bottom:0;}
+  .contact-alt b{color:var(--ink);}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href="/" class="logo" aria-label="ナゴヤ人間 ホーム">
+      <span class="logo__mark" aria-hidden="true"></span>
+      <span class="logo__text">ナゴヤ人間</span>
+    </a>
+    <nav class="site-nav" aria-label="サイト内ナビゲーション">
+      <a href="/#about">About</a>
+      <a href="/#magazines">マガジン</a>
+      <a href="/#products">ラボ</a>
+      <a href="/news.html">お知らせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="section section--narrow" aria-labelledby="contact-title">
+  <div class="container">
+    <p class="kicker">Contact</p>
+    <h1 id="contact-title" class="section__title">お問い合わせ</h1>
+    <p class="section__lede">
+      取材・寄稿・スポンサーシップ・登壇のご依頼、記事への感想、訂正や削除のご相談など、
+      どのようなご連絡でも受け付けています。3営業日以内を目安にお返事します。
+    </p>
+
+    <!-- ===== Google フォーム埋め込み =====
+         REPLACE_WITH_GOOGLE_FORM_URL を Google フォームの「埋め込みURL」に置換する。
+         取得方法：Google フォーム編集画面 → 右上「送信」 → タブ「<>」 → HTML をコピー → src="..." の URL のみ抜き出す。 -->
+    <div class="contact-form">
+      <iframe
+        src="REPLACE_WITH_GOOGLE_FORM_URL"
+        title="お問い合わせフォーム"
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin">
+        読み込み中です…
+      </iframe>
+    </div>
+
+    <!-- フォームが使えない場合のフォールバック窓口 -->
+    <aside class="contact-alt" aria-labelledby="contact-alt-title">
+      <p><b id="contact-alt-title">フォームが開けない場合</b></p>
+      <p>
+        X の <a href="https://x.com/nagoya_ningen" target="_blank" rel="noopener" class="link-arrow link-arrow--muted">@nagoya_ningen</a>
+        ／ Threads の <a href="https://www.threads.com/@nagoya_ningen" target="_blank" rel="noopener" class="link-arrow link-arrow--muted">@nagoya_ningen</a>
+        の DM でもご連絡いただけます。
+      </p>
+      <p class="site-footer__sub">
+        ※ 訂正・削除のご相談は、対象の記事URL（または該当箇所の抜粋）を添えていただけると助かります。
+      </p>
+    </aside>
+
+    <p class="section__more">
+      <a href="/" class="link-arrow link-arrow--muted">← ホームに戻る</a>
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div class="site-footer__brand">
+      <picture>
+        <source srcset="img/character/portrait.webp" type="image/webp">
+        <img src="img/character/portrait.png" alt="ナゴヤ人間 マスコット" width="80" height="80" loading="lazy" decoding="async">
+      </picture>
+      <div>
+        <p class="site-footer__name">ナゴヤ人間</p>
+        <p class="site-footer__tag">名古屋を、ひとつずつ。</p>
+      </div>
+    </div>
+    <nav class="site-footer__sns" aria-label="SNS">
+      <a href="https://note.com/citypod_nagoya" target="_blank" rel="noopener">note</a>
+      <a href="https://www.threads.com/@nagoya_ningen" target="_blank" rel="noopener">Threads</a>
+      <a href="https://x.com/nagoya_ningen" target="_blank" rel="noopener">X</a>
+      <a href="https://www.instagram.com/nagoya_ningen/" target="_blank" rel="noopener">Instagram</a>
+    </nav>
+    <p class="site-footer__copy">© 2026 ナゴヤ人間 / Nagoya Ningen.<br><span class="site-footer__sub">本サイト・各記事・各アプリは独立メディアによる発信です。</span></p>
+  </div>
+</footer>
+
+</body>
+</html>
