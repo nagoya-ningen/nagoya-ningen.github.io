@@ -1,5 +1,29 @@
 [
   {
+    "date": "2026-07-01",
+    "tag": "サイト",
+    "title": "オフィシャルサイトを更新。自作アプリに「わたしの森道」と「ナゴヤ人間RUN」を追加しました。",
+    "url": "https://nagoya-ningen.github.io/"
+  },
+  {
+    "date": "2026-06-19",
+    "tag": "アプリ",
+    "title": "ブラウザゲーム「ナゴヤ人間RUN」を公開。名古屋の名所を走って豆知識を集めるアクションゲームです。",
+    "url": "https://241yusei.github.io/nagoya-ningen-run/"
+  },
+  {
+    "date": "2026-06-16",
+    "tag": "ラボ",
+    "title": "愛知の政治を国・県・市で横断検索できる中立ツール「愛知政治マップ」の制作記録をnoteで公開しました。",
+    "url": "https://note.com/citypod_nagoya"
+  },
+  {
+    "date": "2026-06-14",
+    "tag": "アプリ",
+    "title": "「わたしの森道」を公開。森道市場2026で行った店・来年行きたい店を1枚の画像に残せます。",
+    "url": "https://nagoya-ningen.github.io/watashi-no-morimichi/"
+  },
+  {
     "date": "2026-06-11",
     "tag": "サイト",
     "title": "オフィシャルサイトを更新。ナゴヤ人間ラボ（メンバーシップ）の案内を掲載しました。",
