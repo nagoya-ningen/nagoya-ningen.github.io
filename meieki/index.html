@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>名駅の論点マップ | ナゴヤ人間</title>
+<meta name="description" content="着工「未定」のまま止まった名古屋駅前の再開発。読者の声を集めてAIで構造化し、論点マップとして公開する参加型企画。">
+<style>
+  :root{
+    --bg:#070707; --ink:#f5f3ee; --dim:#8a8780;
+    --yellow:#f0e040; --orange:#ffa800; --site:#DD5E2C; --green:#6effa0;
+    --card:#111110; --line:#26251f;
+    --sans:'Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP','Yu Gothic',sans-serif;
+    --mono:'SFMono-Regular',Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);min-height:100vh;display:flex;flex-direction:column}
+  main{width:100%;max-width:720px;margin:0 auto;padding:28px 18px 60px;flex:1}
+
+  .badge{display:inline-block;font-family:var(--mono);font-size:12px;color:var(--yellow);border:1px solid var(--yellow);border-radius:999px;padding:3px 12px;letter-spacing:.08em}
+  h1{font-size:32px;font-weight:900;margin:14px 0 6px;line-height:1.3}
+  h1 .y{color:var(--yellow);text-shadow:0 0 40px rgba(240,224,64,.45)}
+  .lede{color:var(--dim);font-size:13.5px;font-weight:600;line-height:1.9;margin-bottom:22px}
+  .lede b{color:var(--ink)}
+
+  .facts{display:flex;gap:10px;margin:18px 0 26px;flex-wrap:wrap}
+  .fact{flex:1;min-width:150px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}
+  .fact .n{font-size:26px;font-weight:900;color:var(--yellow)}
+  .fact .l{font-size:11px;color:var(--dim);font-weight:700;margin-top:4px;line-height:1.6}
+
+  h2{font-size:16px;font-weight:900;margin:30px 0 10px;border-left:4px solid var(--yellow);padding-left:10px}
+  p.body{font-size:13.5px;line-height:2.0;color:var(--ink);margin-bottom:10px}
+  p.body a{color:var(--green)}
+
+  .q{background:var(--card);border:1px solid var(--yellow);border-radius:14px;padding:20px;margin:22px 0}
+  .q .qt{font-size:17px;font-weight:900;line-height:1.7;margin-bottom:14px}
+  .q .qt .y{color:var(--yellow)}
+  textarea{width:100%;min-height:120px;background:#0d0d0c;border:1px solid var(--line);border-radius:10px;color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.8;padding:12px;resize:vertical}
+  textarea:focus{outline:none;border-color:var(--yellow)}
+  .meta-row{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+  select{background:#0d0d0c;border:1px solid var(--line);border-radius:8px;color:var(--ink);padding:8px 10px;font-size:13px;font-family:var(--sans)}
+  .cnt{font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:6px;text-align:right}
+  #submit{margin-top:14px;width:100%;background:var(--yellow);color:#080808;border:none;border-radius:10px;font-weight:900;font-size:15px;padding:13px;cursor:pointer;font-family:var(--sans)}
+  #submit:disabled{background:var(--line);color:var(--dim);cursor:default}
+  #msg{margin-top:10px;font-size:13px;line-height:1.8}
+  #msg.ok{color:var(--green)}
+  #msg.ng{color:var(--orange)}
+
+  .progress{margin:8px 0 0}
+  .bar{height:10px;background:var(--card);border:1px solid var(--line);border-radius:999px;overflow:hidden}
+  .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--yellow),var(--orange));width:0%}
+  .bar-label{font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:5px;text-align:right}
+
+  ol.rules{margin:6px 0 0 20px;font-size:13px;line-height:2.0}
+  ol.rules li{margin-bottom:6px}
+  ol.rules b{color:var(--yellow)}
+
+  footer{border-top:1px solid var(--line);padding:20px 18px 0;color:var(--dim);font-size:11.5px;line-height:1.9}
+  footer .inner{max-width:720px;margin:0 auto;padding-bottom:16px}
+  footer a{color:var(--dim)}
+  .band{height:8px;background:linear-gradient(90deg,var(--yellow),var(--orange),var(--site))}
+</style>
+</head>
+<body>
+<main>
+  <span class="badge">ナゴヤ人間 参加型企画</span>
+  <h1>名駅の<span class="y">論点マップ</span><br>— 読者と考える、名古屋駅前のこれから</h1>
+  <p class="lede">
+    名古屋駅前の再開発は、着工時期が<b>「未定」</b>のまま止まっています。行政と事業者による懇談会は非公開で、そこに<b>市民の声を届ける窓口は、いまのところありません</b>。だからナゴヤ人間は、読者の声を集めてAIで構造化し、「論点マップ」として公開することにしました。声はそのまま記事になり、名古屋市にも届けます。
+  </p>
+
+  <div class="facts">
+    <div class="fact"><div class="n">未定</div><div class="l">名鉄再開発の着工時期（2025年12月発表）</div></div>
+    <div class="fact"><div class="n">8,880<span style="font-size:14px">億円</span></div><div class="l">当初計画の総投資額。建設費は約2倍に</div></div>
+    <div class="fact"><div class="n">0<span style="font-size:14px">件</span></div><div class="l">懇談会に市民意見を出せる公式窓口の数</div></div>
+  </div>
+
+  <div class="q">
+    <div class="qt">あなたに聞きたいのはひとつです。<br><span class="y">名駅と名古屋駅前は、これからどうあるべきだと思いますか。</span></div>
+    <textarea id="optext" maxlength="500" placeholder="例: 高層ビルより、雨に濡れず歩ける低層の回遊空間がほしい。／ 栄との役割分担を先に決めるべき。／ 工事中の間も楽しい駅前にしてほしい。など、思ったことをそのまま書いてください（10〜500文字）"></textarea>
+    <div class="cnt"><span id="len">0</span>/500</div>
+    <div class="meta-row">
+      <select id="area">
+        <option value="">お住まい（任意）</option>
+        <option>名古屋市内</option>
+        <option>愛知県内(名古屋市外)</option>
+        <option>県外</option>
+        <option>海外</option>
+      </select>
+      <select id="age">
+        <option value="">年代（任意）</option>
+        <option>10代</option><option>20代</option><option>30代</option><option>40代</option>
+        <option>50代</option><option>60代</option><option>70代以上</option>
+      </select>
+    </div>
+    <button id="submit">この声を論点マップに加える</button>
+    <div id="msg"></div>
+    <div class="progress">
+      <div class="bar"><i id="fill"></i></div>
+      <div class="bar-label"><span id="total">0</span>/400件 — 400件（行政のAI意見分析で実績のある規模）を目指しています</div>
+    </div>
+  </div>
+
+  <h2>この企画の運用原則</h2>
+  <ol class="rules">
+    <li><b>匿名です。</b>名前・連絡先は集めません。お住まい・年代も任意です。</li>
+    <li><b>全件公開が原則です。</b>寄せられた声は、公序良俗に反するもの・個人や特定企業への誹謗中傷を除き、すべて原文のまま公開します。除外した場合は件数と基準を公表します。</li>
+    <li><b>分析手法を公開します。</b>集まった声はオープンソースのAI分析ツール「広聴AI」（デジタル民主主義2030プロジェクト）で構造化し、手法・元データとも検証可能な形で公開します。</li>
+    <li><b>選挙運動ではありません。</b>この企画は特定の政党・候補者・企業と無関係です。結果を議員へ届ける場合は、全会派・全議員に同じものを一律で送り、送付物は全文公開します。個別の議員の賛否比較は行いません。</li>
+    <li><b>結果は必ず返します。</b>論点マップは記事として無料公開し、名古屋市（名駅ターミナル整備課・市民の声）へ提出します。懇談会のとりまとめ（2026年度内予定）より前に間に合わせます。</li>
+  </ol>
+
+  <h2>なぜ今か</h2>
+  <p class="body">
+    名古屋市が設けた「名駅グランドデザイン懇談会」は2026年4月に始まり、2026年度内に街づくりの方向性をとりまとめる予定です。方向性が固まってから声を上げても遅い。声が意味を持つ窓は、今年の秋から冬までです。ナゴヤ人間は名駅の定点観測を続けてきたメディアとして、この窓に間に合う形で読者の声を構造化して届けます。経緯の詳細は<a href="https://note.com/citypod_nagoya" target="_blank" rel="noopener">note連載「名駅定点」</a>をご覧ください。
+  </p>
+</main>
+
+<footer>
+  <div class="inner">
+    運営: ナゴヤ人間（名古屋の批評メディア）。この企画は特定の政党・候補者・企業から独立しています。投稿された文章の著作権は投稿者に帰属し、本企画の公開・分析・報道目的での利用に同意いただいたものとして扱います。<br>
+    <a href="https://nagoya-ningen.github.io/" target="_blank" rel="noopener">公式サイト</a> ／
+    <a href="https://note.com/citypod_nagoya" target="_blank" rel="noopener">note</a> ／
+    <a href="/annai/" rel="noopener">ナゴヤ案内所</a>
+  </div>
+</footer>
+<div class="band"></div>
+
+<script>
+// 本番(GitHub Pages)ではWorkerのURLを指定する。ローカル開発では同一オリジン。
+const API_BASE = location.hostname.endsWith("github.io")
+  ? "https://nagoya-annai.REPLACE_ME.workers.dev"   // ← デプロイ後に自分のWorker URLへ
+  : "";
+const GOAL = 400;
+
+const $ = (s) => document.querySelector(s);
+const ta = $("#optext"), btn = $("#submit"), msg = $("#msg");
+
+ta.addEventListener("input", () => { $("#len").textContent = ta.value.length; });
+
+function setTotal(n){
+  $("#total").textContent = n;
+  $("#fill").style.width = Math.min(100, (n / GOAL) * 100) + "%";
+}
+
+btn.addEventListener("click", async () => {
+  const text = ta.value.trim();
+  if (text.length < 10) { msg.className = "ng"; msg.textContent = "10文字以上で入力してください。"; return; }
+  btn.disabled = true; msg.className = ""; msg.textContent = "送信中…";
+  try {
+    const res = await fetch(API_BASE + "/api/opinion", {
+      method: "POST",
+      headers: {"content-type": "application/json"},
+      body: JSON.stringify({ text, area: $("#area").value, age: $("#age").value }),
+    });
+    const data = await res.json();
+    if (data.ok) {
+      msg.className = "ok";
+      msg.textContent = "受け取りました。あなたの声は論点マップの一部になります。ありがとうございます。";
+      ta.value = ""; $("#len").textContent = "0";
+      setTotal(data.total);
+    } else {
+      msg.className = "ng"; msg.textContent = data.error || "送信に失敗しました。";
+    }
+  } catch (e) {
+    msg.className = "ng"; msg.textContent = "送信できませんでした。時間をおいて試してください。";
+  }
+  btn.disabled = false;
+});
+
+fetch(API_BASE + "/api/opinion/count").then(r => r.json()).then(d => {
+  if (d.ok) setTotal(d.total);
+}).catch(() => {});
+</script>
+</body>
+</html>
