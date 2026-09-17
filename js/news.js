@@ -43,7 +43,10 @@
       }).join('');
     })
     .catch(() => {
-      list.innerHTML = '<li class="news-list__empty">お知らせを読み込めませんでした。時間をおいて再度ご確認ください。</li>';
+      /* HTMLに置いた最新項目をフォールバックとして残す。 */
+      if (!list.querySelector('.news-list__item')) {
+        list.innerHTML = '<li class="news-list__empty">お知らせを読み込めませんでした。時間をおいて再度ご確認ください。</li>';
+      }
     });
 
   function escape(s){

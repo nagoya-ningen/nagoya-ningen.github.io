@@ -1,6 +1,6 @@
 # ナゴヤ人間 — Official Site
 
-名古屋を素材に、都市・産業・文化の構造を読み解く独立メディア「ナゴヤ人間」のオフィシャルサイトです。
+名古屋・愛知の公式資料と街の変化を、暮らす人の視点から読み解く独立メディア「ナゴヤ人間」のオフィシャルサイトです。
 
 **公開URL**: https://nagoya-ningen.github.io/
 
@@ -10,6 +10,9 @@
 .
 ├── index.html        # トップページ
 ├── news.html         # お知らせ一覧
+├── contact.html      # 問い合わせ窓口
+├── annai/            # 記事アーカイブを使うAI案内所
+├── meieki/           # 名駅の論点マップ（現在は募集休止中）
 ├── css/style.css     # 全ページ共通スタイル
 ├── js/news.js        # ニュース読込・描画
 ├── data/news.json    # ニュースデータ（追記式）
@@ -34,9 +37,9 @@
 
 サイト側で日付降順に並び替えるので、追加順序は問いません（先頭推奨）。
 
-## マガジン／アプリを追加する
+## 記事／アプリを追加する
 
-`index.html` の該当セクション（マガジンは `#magazines`、アプリは `#products`）を直接編集します。デザインの一貫性を保つため、テンプレートエンジンは使っていません。
+`index.html` の該当セクション（記事は `#articles`、アプリは `#products`）を直接編集します。デザインの一貫性を保つため、テンプレートエンジンは使っていません。
 
 ## 技術構成
 
@@ -49,6 +52,7 @@
 ## SNS
 
 - note: https://note.com/citypod_nagoya
+- 無料ニュースレター: https://nagoyaningen.substack.com/
 - X: https://x.com/nagoya_ningen
 - Threads: https://www.threads.com/@nagoya_ningen
 

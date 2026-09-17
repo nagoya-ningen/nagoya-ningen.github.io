@@ -4,45 +4,30 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>お問い合わせ — ナゴヤ人間</title>
-<meta name="description" content="ナゴヤ人間へのお問い合わせ。取材・寄稿・スポンサーシップ・訂正/削除依頼など、どのようなご連絡でも受け付けています。">
+<meta name="description" content="ナゴヤ人間へのお問い合わせ。記事への感想、訂正・削除、掲載内容、取材・寄稿などのご相談を受け付けています。">
 <meta name="theme-color" content="#FAFAF7">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ナゴヤ人間">
 <meta property="og:title" content="お問い合わせ — ナゴヤ人間">
-<meta property="og:description" content="ナゴヤ人間へのお問い合わせフォーム。取材・寄稿・スポンサー・訂正/削除など。">
+<meta property="og:description" content="記事への感想、訂正・削除、掲載内容、取材・寄稿などのご相談はこちらから。">
 <meta property="og:image" content="https://nagoya-ningen.github.io/img/og/og-card.png">
 <meta property="og:url" content="https://nagoya-ningen.github.io/contact.html">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@nagoya_ningen">
 <link rel="canonical" href="https://nagoya-ningen.github.io/contact.html">
 
-<link rel="icon" type="image/png" href="img/character/bust.png">
-<link rel="apple-touch-icon" href="img/character/bust.png">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
 <link rel="stylesheet" href="css/style.css">
 
 <style>
   /* ---------- お問い合わせページ専用の追加スタイル ---------- */
-  .contact-form{
-    margin-top:32px;
-    border:1px solid var(--line);
-    background:var(--paper);
-    border-radius:6px;
-    overflow:hidden;
-  }
-  .contact-form iframe{
-    display:block;
-    width:100%;
-    height:1180px;
-    border:0;
-  }
-  .contact-form__placeholder{
-    padding:40px 24px;
-    text-align:center;
-    color:var(--sub);
-    font-size:var(--fs-small);
-    line-height:1.9;
-  }
+  .contact-options{display:grid;gap:12px;margin-top:32px;}
+  .contact-option{display:block;padding:22px 24px;background:#fff;border:1px solid var(--line);border-radius:12px;}
+  .contact-option:hover{opacity:1;border-color:var(--ink);}
+  .contact-option b{display:block;margin-bottom:5px;}
+  .contact-option span{display:block;color:var(--sub);font-size:14px;line-height:1.7;}
   .contact-alt{
     margin-top:40px;
     padding:24px;
@@ -56,6 +41,8 @@
 </head>
 <body>
 
+<a class="skip-link" href="#main-content">本文へ移動</a>
+
 <header class="site-header">
   <div class="container site-header__inner">
     <a href="/" class="logo" aria-label="ナゴヤ人間 ホーム">
@@ -64,47 +51,44 @@
     </a>
     <nav class="site-nav" aria-label="サイト内ナビゲーション">
       <a href="/#about">About</a>
-      <a href="/#magazines">マガジン</a>
+      <a href="/#articles">記事</a>
       <a href="/#products">ラボ</a>
       <a href="/news.html">お知らせ</a>
     </nav>
   </div>
 </header>
 
-<main>
+<main id="main-content">
 
 <section class="section section--narrow" aria-labelledby="contact-title">
   <div class="container">
     <p class="kicker">Contact</p>
     <h1 id="contact-title" class="section__title">お問い合わせ</h1>
     <p class="section__lede">
-      取材・寄稿・スポンサーシップ・登壇のご依頼、記事への感想、訂正や削除のご相談など、
-      どのようなご連絡でも受け付けています。3営業日以内を目安にお返事します。
+      記事への感想、訂正・削除、掲載内容に関するご連絡を受け付けています。
+      取材・寄稿などのご相談にも、対応できる範囲でお返事します。
     </p>
 
-    <!-- ===== Google フォーム埋め込み =====
-         REPLACE_WITH_GOOGLE_FORM_URL を Google フォームの「埋め込みURL」に置換する。
-         取得方法：Google フォーム編集画面 → 右上「送信」 → タブ「<>」 → HTML をコピー → src="..." の URL のみ抜き出す。 -->
-    <div class="contact-form">
-      <iframe
-        src="REPLACE_WITH_GOOGLE_FORM_URL"
-        title="お問い合わせフォーム"
-        loading="lazy"
-        referrerpolicy="strict-origin-when-cross-origin">
-        読み込み中です…
-      </iframe>
+    <div class="contact-options" aria-label="お問い合わせ方法">
+      <a class="contact-option" href="https://note.com/citypod_nagoya/message" target="_blank" rel="noopener">
+        <b>noteから問い合わせる →</b>
+        <span>記事URLや該当箇所を添えて送れます。訂正・削除のご連絡にもご利用ください。</span>
+      </a>
+      <a class="contact-option" href="https://x.com/nagoya_ningen" target="_blank" rel="noopener">
+        <b>Xで連絡する →</b>
+        <span>@nagoya_ningen のDMからご連絡ください。</span>
+      </a>
+      <a class="contact-option" href="https://www.threads.com/@nagoya_ningen" target="_blank" rel="noopener">
+        <b>Threadsで連絡する →</b>
+        <span>@nagoya_ningen のプロフィールからご連絡ください。</span>
+      </a>
     </div>
 
     <!-- フォームが使えない場合のフォールバック窓口 -->
     <aside class="contact-alt" aria-labelledby="contact-alt-title">
-      <p><b id="contact-alt-title">フォームが開けない場合</b></p>
-      <p>
-        X の <a href="https://x.com/nagoya_ningen" target="_blank" rel="noopener" class="link-arrow link-arrow--muted">@nagoya_ningen</a>
-        ／ Threads の <a href="https://www.threads.com/@nagoya_ningen" target="_blank" rel="noopener" class="link-arrow link-arrow--muted">@nagoya_ningen</a>
-        の DM でもご連絡いただけます。
-      </p>
+      <p><b id="contact-alt-title">訂正・削除について</b></p>
       <p class="site-footer__sub">
-        ※ 訂正・削除のご相談は、対象の記事URL（または該当箇所の抜粋）を添えていただけると助かります。
+        対象の記事URL、該当箇所、確認できる根拠を添えてください。内容を確認し、必要な修正と更新履歴の明示を行います。
       </p>
     </aside>
 
@@ -125,11 +109,13 @@
       </picture>
       <div>
         <p class="site-footer__name">ナゴヤ人間</p>
-        <p class="site-footer__tag">名古屋を、ひとつずつ。</p>
+        <p class="site-footer__tag">名古屋の変化を、暮らす人の視点から。</p>
       </div>
     </div>
     <nav class="site-footer__sns" aria-label="SNS">
       <a href="https://note.com/citypod_nagoya" target="_blank" rel="noopener">note</a>
+      <a href="https://nagoyaningen.substack.com/" target="_blank" rel="noopener">ニュースレター</a>
+      <a href="/annai/">ナゴヤ案内所</a>
       <a href="https://www.threads.com/@nagoya_ningen" target="_blank" rel="noopener">Threads</a>
       <a href="https://x.com/nagoya_ningen" target="_blank" rel="noopener">X</a>
       <a href="https://www.instagram.com/nagoya_ningen/" target="_blank" rel="noopener">Instagram</a>

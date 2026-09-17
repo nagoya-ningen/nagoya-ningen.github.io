@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ナゴヤ案内所 | ナゴヤ人間</title>
 <meta name="description" content="名古屋の批評メディア「ナゴヤ人間」の記事アーカイブから、出典付きで質問に答えるAI案内所。">
+<link rel="canonical" href="https://nagoya-ningen.github.io/annai/">
+<meta property="og:title" content="ナゴヤ案内所 | ナゴヤ人間">
+<meta property="og:description" content="ナゴヤ人間の記事アーカイブを根拠に、出典付きで質問に答えるAI案内所。">
+<meta property="og:url" content="https://nagoya-ningen.github.io/annai/">
+<meta property="og:image" content="https://nagoya-ningen.github.io/img/og/og-card.png">
 <style>
   :root{
     --bg:#070707; --ink:#f5f3ee; --dim:#8a8780;
@@ -62,12 +67,14 @@
   footer a{color:var(--dim)}
   .band{height:8px;background:linear-gradient(90deg,var(--yellow),var(--orange),var(--site))}
 </style>
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
 </head>
 <body>
 <main>
   <span class="badge">&gt; ナゴヤ人間ラボ 制作記録</span>
   <h1>ナゴヤ<span class="y">案内所</span></h1>
-  <p class="sub">名古屋の批評メディア「ナゴヤ人間」の記事<b id="count">182</b>本だけを根拠に、出典付きで質問に答えます。記事にないことは、答えません。</p>
+  <p class="sub">名古屋の批評メディア「ナゴヤ人間」の記事アーカイブだけを根拠に、出典付きで質問に答えます。記事にないことは、答えません。</p>
 
   <div class="chips" id="chips">
     <button class="chip">名駅の再開発は今どうなっていますか</button>
@@ -78,31 +85,28 @@
     <button class="chip">リニアが来ると名古屋はどう変わりますか</button>
   </div>
 
-  <div id="log"></div>
+  <div id="log" aria-live="polite"></div>
 
-  <div id="gate">
-    本日の無料枠(<b>3問</b>)を使い切りました。<br>
-    <a href="https://note.com/citypod_nagoya/membership" target="_blank" rel="noopener">ナゴヤ人間ラボ(月500円)</a>の会員は、会員限定記事に載っている合言葉で引き続き質問できます。<br><br>
-    <input id="passcode" type="text" placeholder="合言葉" autocomplete="off">
-    <button id="unlock">解錠する</button>
-    <span id="gate-msg"></span>
+  <div id="gate" role="status">
+    本日の無料枠（<b>3問</b>）を使い切りました。日本時間の日付が変わると、また利用できます。
   </div>
 </main>
 
 <form id="ask">
   <div class="askin">
     <span class="p">&gt;</span>
-    <input id="q" type="text" maxlength="300" placeholder="名古屋について、聞きたいことをどうぞ" autocomplete="off">
+    <input id="q" type="text" maxlength="300" aria-label="名古屋についての質問" placeholder="名古屋について、聞きたいことをどうぞ" autocomplete="off">
     <button id="send" type="submit">聞く</button>
   </div>
-  <div class="quota" id="quota"></div>
+  <div class="quota" id="quota" aria-live="polite"></div>
 </form>
 
 <footer>
   <div class="inner">
-    回答はAIが記事アーカイブに基づいて生成しています。誤りを含む可能性があるため、重要な判断には出典記事と一次情報を確認してください。答えられなかった質問は、今後の取材テーマとして記録されます。<br>
+    回答はAIが記事アーカイブに基づいて生成しています。誤りを含む可能性があるため、重要な判断には出典記事と一次情報を確認してください。答えられなかった質問は、今後の記事テーマ候補として記録されます。<br>
     <a href="https://nagoya-ningen.github.io/" target="_blank" rel="noopener">ナゴヤ人間 公式サイト</a> ／
     <a href="https://note.com/citypod_nagoya" target="_blank" rel="noopener">note</a> ／
+    <a href="https://nagoyaningen.substack.com/" target="_blank" rel="noopener">無料ニュースレター</a> ／
     <a href="https://note.com/citypod_nagoya/membership" target="_blank" rel="noopener">ナゴヤ人間ラボ(メンバーシップ)</a>
   </div>
 </footer>
@@ -120,14 +124,15 @@ const FREE_PER_DAY = 3;
 const $ = (s) => document.querySelector(s);
 const log = $("#log"), qInput = $("#q"), sendBtn = $("#send");
 
-function todayKey(){ return "annai_used_" + new Date().toISOString().slice(0,10); }
+function todayKey(){
+  const parts = new Intl.DateTimeFormat("ja-JP", {timeZone:"Asia/Tokyo", year:"numeric", month:"2-digit", day:"2-digit"}).formatToParts(new Date());
+  const value = Object.fromEntries(parts.map(part => [part.type, part.value]));
+  return `annai_used_${value.year}-${value.month}-${value.day}`;
+}
 function usedToday(){ return parseInt(localStorage.getItem(todayKey()) || "0", 10); }
-function passcode(){ return localStorage.getItem("annai_passcode") || ""; }
-function isMember(){ return !!passcode(); }
 
 function updateQuota(){
   const el = $("#quota");
-  if (isMember()) { el.innerHTML = '<span class="member">会員モード</span>'; return; }
   const left = Math.max(0, FREE_PER_DAY - usedToday());
   el.textContent = `無料枠 のこり${left}問(1日${FREE_PER_DAY}問)`;
   if (left <= 0) { $("#gate").style.display = "block"; sendBtn.disabled = true; }
@@ -165,7 +170,7 @@ function renderAnswer(data){
 let busy = false;
 async function ask(question){
   if (busy || !question.trim()) return;
-  if (!isMember() && usedToday() >= FREE_PER_DAY){ updateQuota(); return; }
+  if (usedToday() >= FREE_PER_DAY){ updateQuota(); return; }
   busy = true; sendBtn.disabled = true;
   log.appendChild(el("div", "msg-q", question));
   const th = el("div", "thinking", "> 記事アーカイブを検索中…");
@@ -175,7 +180,7 @@ async function ask(question){
     const res = await fetch(API_BASE + "/api/ask", {
       method: "POST",
       headers: {"content-type":"application/json"},
-      body: JSON.stringify({question, passcode: passcode() || undefined}),
+      body: JSON.stringify({question}),
     });
     const data = await res.json();
     th.remove();
@@ -184,10 +189,9 @@ async function ask(question){
       a.appendChild(el("span", "prefix", "> エラー"));
       a.appendChild(el("div", "", data.error || "エラーが発生しました。"));
       log.appendChild(a);
-      if (res.status === 403){ localStorage.removeItem("annai_passcode"); }
     } else {
       renderAnswer(data);
-      if (!isMember()) localStorage.setItem(todayKey(), String(usedToday() + 1));
+      localStorage.setItem(todayKey(), String(usedToday() + 1));
     }
   } catch (e) {
     th.remove();
@@ -198,26 +202,12 @@ async function ask(question){
   }
   busy = false;
   updateQuota();
-  if (isMember() || usedToday() < FREE_PER_DAY) sendBtn.disabled = false;
+  if (usedToday() < FREE_PER_DAY) sendBtn.disabled = false;
   log.lastElementChild.scrollIntoView({behavior:"smooth", block:"end"});
 }
 
 $("#ask").addEventListener("submit", (e) => { e.preventDefault(); const q = qInput.value; qInput.value = ""; ask(q); });
 $("#chips").addEventListener("click", (e) => { if (e.target.classList.contains("chip")) ask(e.target.textContent); });
-$("#unlock").addEventListener("click", (e) => {
-  e.preventDefault();
-  const v = $("#passcode").value.trim();
-  if (!v) return;
-  localStorage.setItem("annai_passcode", v);
-  $("#gate").style.display = "none";
-  $("#gate-msg").textContent = "";
-  sendBtn.disabled = false;
-  updateQuota();
-});
-
-fetch(API_BASE + "/api/health").then(r => r.json()).then(d => {
-  if (d.articles) $("#count").textContent = d.articles;
-}).catch(() => {});
 updateQuota();
 </script>
 </body>
