@@ -79,8 +79,8 @@
 
 ## モーショングラフィックとロゴ（2026-09-28 更新）
 
-- トップは本人提供のセリフ体ロゴ `img/brand/editorial-logo.png` をポスターとして配置。14秒でゆっくり浮動し、背後の街の写真をワイプで切り替えます。
-- ラボは `img/brand/nn-seated.png`、共通フッターは `img/brand/sculpted-logo.png`。3点とも提供PNGを加工せず収録し、文字やキャラクターを切り取らずに表示。
+- トップは本人提供のセリフ体ロゴを背景透過した `img/brand/editorial-logo-transparent.png` を水平に配置。14秒でゆっくり上下に浮動し、背後の街の写真をワイプで切り替えます。回転と四角い影は使いません。黒い文字が読めるよう、写真には明るい暖色のシェードを重ねます。
+- ラボは `img/brand/nn-seated.png`、共通フッターは `img/brand/sculpted-logo.png`。提供PNGの原本3点は保持し、トップ用の透過版のみ別名で収録。文字やキャラクターを切り取らずに表示。
 - ヘッダーの既存ロゴは `img/brand/{nagoya.png,ningen.png,character-2026.png}` を元の比率・重なり順で維持。
 - `css/motion.css`: ポスター浮動、写真ワイプ、背景タイポ、スクロール登場、文字の帯。既存の静的CSSとは分けて管理。
 - `js/motion.js`: 一時停止・再生、セッション内の停止設定保存、OSの動きを減らす設定、画面外と非表示タブでの停止、IntersectionObserverによる一度きりの登場。

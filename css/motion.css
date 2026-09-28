@@ -18,7 +18,7 @@
 .motion-reel { position: relative; width: 100%; height: clamp(550px, 46vw, 695px); overflow: hidden; isolation: isolate; background: var(--logo-orange); }
 .reel-art { position: absolute; inset: 0; overflow: hidden; }
 .reel-city { width: 100%; height: 100%; object-fit: cover; object-position: 50% 58%; position: absolute; inset: 0; transform: scale(1.06); }
-.reel-city-shade { position: absolute; inset: 0; background: #0d191a80; }
+.reel-city-shade { position: absolute; inset: 0; background: #fff2ddbb; }
 .reel-orange-sheet { position: absolute; inset: -1px; background: var(--logo-orange); transform-origin: top; }
 .reel-grid { position: absolute; inset: 0; opacity: .16; background-image: linear-gradient(#793c222b 1px, transparent 1px),linear-gradient(90deg,#793c222b 1px,transparent 1px); background-size: 12.5% 12.5%; }
 .reel-type-lines { position: absolute; left: -7%; right: -7%; top: 17%; font: 900 clamp(80px, 11vw, 167px)/.98 Arial,Helvetica,sans-serif; letter-spacing: -.075em; color: transparent; -webkit-text-stroke: 1px #171b1933; transform: rotate(-9deg); user-select: none; }
@@ -27,8 +27,8 @@
 .reel-orbit { position: absolute; width: 75%; aspect-ratio: 1; border: 1px solid #754b3b44; border-radius: 50%; top: 12%; left: 11%; transform: rotate(-22deg) scaleX(.65); }
 .orbit-two { transform: rotate(40deg) scaleX(.65); }
 .reel-caption-top { position: absolute; top: 25px; left: 25px; right: 25px; display: flex; justify-content: space-between; gap: 16px; font: 11px var(--mono); letter-spacing: .04em; color: #2c2b25; }
-.reel-poster { position: absolute; inset: 12% 10% 13%; display: flex; align-items: center; justify-content: center; transform: rotate(-4deg); }
-.reel-poster img { display: block; width: auto; height: auto; max-width: 100%; max-height: 100%; aspect-ratio: 1; object-fit: contain; box-shadow: 0 20px 45px #1720202b; }
+.reel-poster { position: absolute; inset: 12% 10% 13%; display: flex; align-items: center; justify-content: center; }
+.reel-poster img { display: block; width: auto; height: auto; max-width: 100%; max-height: 100%; aspect-ratio: 1; object-fit: contain; }
 .reel-timeline { position: absolute; bottom: 19px; left: 26px; right: 26px; display: flex; justify-content: space-between; gap: 8px; padding-top: 13px; border-top: 1px solid #2c2b2560; font: 10px/1.4 var(--mono); color: #2c2b25; }
 .reel-timeline i { position: absolute; top: -1px; left: 0; right: 0; height: 2px; background: currentColor; transform: scaleX(0); transform-origin: left; }
 .motion-caption { display: flex; align-items: flex-start; justify-content: space-between; gap: 15px; margin-top: 14px; }
@@ -67,7 +67,6 @@
 .motion-ready .reel-type-lines { animation: type-drift 14s ease-in-out infinite; }
 .motion-ready .reel-orbit { animation: orbit-turn 28s linear infinite; }
 .motion-ready .orbit-two { animation-direction: reverse; animation-delay: -9s; }
-.motion-ready .reel-timeline { animation: caption-color 14s ease-in-out infinite; }
 .motion-ready .reel-timeline i { animation: reel-progress 14s linear infinite; }
 .motion-ready .kinetic-track { animation: type-travel 27s linear infinite; }
 .motion-ready .reveal-target { transition: transform .85s var(--motion-ease),opacity .85s ease; transition-delay: var(--reveal-delay,0ms); }
@@ -75,12 +74,11 @@
 .motion-ready .reveal-target:focus-within { transform: none; opacity: 1; transition: none; }
 @keyframes headline-enter { from { transform: translateY(105%) rotate(3deg); } to { transform: translateY(0) rotate(0); } }
 @keyframes line-enter { from { opacity: 0; transform: translateX(-18px); } to { opacity: 1; transform: translateX(0); } }
-@keyframes poster-drift { 0%,100% { transform: translateY(0) rotate(-4deg) scale(.96); } 34% { transform: translateY(-7px) rotate(-1deg) scale(1); } 65% { transform: translateY(-10px) rotate(3deg) scale(.94); } 84% { transform: translateY(-5px) rotate(0) scale(.96); } }
+@keyframes poster-drift { 0%,100% { transform: translateY(0) scale(.96); } 34% { transform: translateY(-7px) scale(1); } 65% { transform: translateY(-10px) scale(.94); } 84% { transform: translateY(-5px) scale(.96); } }
 @keyframes city-reveal { 0%,36% { transform: scaleY(1); } 53%,77% { transform: scaleY(0); } 94%,100% { transform: scaleY(1); } }
 @keyframes city-drift { 0%,36% { transform: scale(1.16) translateY(1%); } 78%,100% { transform: scale(1.02) translateY(0); } }
 @keyframes type-drift { 0%,100% { transform: translateX(3%) rotate(-9deg); opacity: 1; } 36% { transform: translateX(-4%) rotate(-9deg); opacity: 1; } 49%,81% { transform: translateX(-10%) rotate(-9deg); opacity: 0; } 95% { opacity: 1; } }
 @keyframes orbit-turn { from { transform: rotate(-22deg) scaleX(.65); } to { transform: rotate(338deg) scaleX(.65); } }
-@keyframes caption-color { 0%,39%,95%,100% { color: #2c2b25; border-color: #2c2b2560; } 52%,78% { color: #fff; border-color: #ffffff80; } }
 @keyframes reel-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 @keyframes type-travel { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 /* Pausing yields a useful composition, never half-hidden article text. */
