@@ -13,10 +13,15 @@
 ├── contact.html      # 問い合わせ窓口
 ├── annai/            # 記事アーカイブを使うAI案内所
 ├── meieki/           # 名駅の論点マップ（現在は募集休止中）
-├── css/style.css     # 全ページ共通スタイル
+├── credits.html     # 写真の出典・利用条件
+├── css/brand.css     # ブランドサイト共通スタイル（2026-09刷新）
+├── css/style.css     # 既存ページ用スタイル（保持）
+├── js/brand.js       # スマホメニュー・キーボード操作
 ├── js/news.js        # ニュース読込・描画
 ├── data/news.json    # ニュースデータ（追記式）
 ├── img/
+│   ├── editorial/    # 実写の名古屋写真（出典はcredits.html）
+│   ├── brand/        # 既存ブランドのキャラクター
 │   ├── character/    # マスコット画像（WebP + PNG fallback）
 │   └── og/           # OGP用画像
 └── robots.txt
@@ -59,3 +64,15 @@
 ---
 
 © 2026 ナゴヤ人間 / Nagoya Ningen
+
+## 2026年9月 ブランドサイト刷新
+
+「街を、読み解く。」を視覚の核に、ブランド紹介、公開記事6本、ラボ、無料ニュースレター、更新情報を構成。サイトの公開コピーは「名古屋の変化を、暮らす人の視点から。」を維持しています。
+
+- 制作ブランチ: `codex/brand-renewal`。公開状態はリリース記録で管理し、このREADMEの存在を公開済み証拠としない。
+- 既存の`annai/`・`meieki/`、外部アプリ、OG画像とfaviconは保持。
+- 写真は縮小・JPEG圧縮、スマートフォン用画像も用意。撮影日と出典は `credits.html` に記載。
+- 新着記事を追加する場合は `data/news.json` とHTMLフォールバックを合わせて更新。
+- メニューはEnter/Spaceで開閉、Escapeで閉じます。JavaScript無効時もモバイルのリンクを表示します。
+
+ローカルプレビュー: `python3 -m http.server 8765 --bind 127.0.0.1`
