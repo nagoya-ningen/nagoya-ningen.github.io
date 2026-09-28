@@ -6,7 +6,7 @@
 .logo-ningen { left: 49.8328%; top: 31.2388%; width: 50.1672%; z-index: 1; }
 .logo-person { left: 40.9953%; top: .0023%; width: 13.8171%; z-index: 2; }
 .logo-nagoya { left: 0; top: 24.9551%; width: 45.4292%; z-index: 3; }
-.brand-official { width: 184px; padding: 7px 11px; background: var(--logo-orange); flex-shrink: 0; }
+.brand-official { display: block; width: 184px; padding: 7px 11px; background: var(--logo-orange); flex-shrink: 0; }
 .header-inner { height: 96px; }
 .site-header { transition: background .25s, box-shadow .25s; }
 .has-scrolled .site-header { box-shadow: 0 6px 24px #1922220a; }
