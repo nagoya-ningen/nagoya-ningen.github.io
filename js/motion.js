@@ -8,7 +8,7 @@
   let userPaused = false;
   try { userPaused = sessionStorage.getItem('nagoya-motion-paused') === 'true'; } catch { /* Storage is optional. */ }
   let observer;
-  const targets = [...document.querySelectorAll('.section-label,.about-intro>h2,.about-body,.principles>div,.section-heading,.story,.more-stories,.lab-display,.lab-copy,.lab-project-heading,.project,.annai-link,.newsletter-copy,.newsletter-graphic,.news-heading,.news-list,.footer-signature')];
+  const targets = [...document.querySelectorAll('.section-label,.about-intro>h2,.about-body,.principles>div,.section-heading,.story,.more-stories,.lab-identity,.lab-copy,.lab-project-heading,.project,.annai-link,.newsletter-copy,.newsletter-graphic,.news-heading,.news-list,.footer-signature')];
 
   function setMotion() {
     const paused = userPaused || reduceMotion.matches;
