@@ -981,18 +981,16 @@ a:focus-visible,button:focus-visible {
   align-self:stretch;
   min-height:420px;
   border-left:1px solid #a4482c;
-  padding-left:42px;
+  padding:24px 36px 58px 30px;
   display:flex;
-  align-items:flex-end;
+  align-items:center;
   justify-content:center
 }
 .newsletter-graphic>img {
-  width:167px;
+  width:100%;
+  max-width:350px;
   height:auto;
-  max-height:375px;
-  object-fit:contain;
-  margin-bottom:18px;
-  transform:rotate(5deg)
+  object-fit:contain
 }
 .letter-vertical {
   position:absolute;
@@ -1428,7 +1426,19 @@ a:focus-visible,button:focus-visible {
     font-size:15px
   }
   .newsletter-graphic {
+    min-height:0;
+    border-left:0;
+    border-top:1px solid #a4482c;
+    padding:24px 0 48px
+  }
+  .newsletter-graphic>img {
+    max-width:300px
+  }
+  .newsletter-graphic .letter-vertical {
     display:none
+  }
+  .newsletter-graphic .letter-bottom {
+    left:0
   }
   .newsletter-button {
     width:100%;
