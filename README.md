@@ -2,7 +2,7 @@
 
 名古屋・愛知の公式資料と街の変化を、暮らす人の視点から読み解く独立メディア「ナゴヤ人間」のオフィシャルサイトです。
 
-**公開URL**: https://nagoya-ningen.github.io/
+**正規URL（本修正の設定）**: https://nagoya-ningen.pages.dev/
 
 ## 構成
 
@@ -52,7 +52,7 @@
 - 画像は WebP（PNGフォールバック）。
 - システムフォントのみ（Webフォントなし）。
 - PWA / Service Worker は意図的に**入れていません**（ニュース更新を確実に反映するため）。
-- GitHub Pages デプロイ（main ブランチ直下）。
+- 静的HTMLを配信。正規URLはCloudflare Pagesとし、既存のGitHub Pages配信とは公開状態を分けて確認します。
 
 ## SNS
 
@@ -88,3 +88,37 @@
 - 静的完成形を既定とし、JSが有効な場合だけモーションを開始。JSやストレージが利用できなくても本文・ロゴ・ナビゲーションを表示。
 - 手動停止からの再生は演出全体を同時に先頭から開始。OSで動きを減らす設定がある場合は、静止表示を優先する。
 - 追加外部ライブラリ・動画ファイル・音声・スクロールの強制制御なし。
+
+## 2026-11-11 テクニカルSEO監査・修正
+
+公開用リリース `c1cac87`（調査時のローカル `origin/main` と一致）の全HTML 7ページを、専用ブランチ `codex/technical-seo-20261111` で修正しました。検索改修中の別ブランチは統合していません。本番へのpush・デプロイ・検索エンジンへの送信は未実施です。
+
+独自ドメインの設定ファイルはありません。本人指定に基づき正規オリジンを `https://nagoya-ningen.pages.dev` としました。[Cloudflare PagesのHTML配信仕様](https://developers.cloudflare.com/pages/configuration/serving-pages/)に合わせ、ルートのHTMLは `/news`・`/contact`・`/credits`、ディレクトリのHTMLは `/annai/`・`/meieki/`・`/topics/meieki-redevelopment/` を正規パスとします。実ファイル名は維持しています。
+
+変更前の結果は次のとおりです。Titleは日本語35文字以内・主題語が前方、descriptionは80〜120文字の1文を今回の判定基準にしました。これらの文字数は今回の編集基準であり、検索順位や表示文字数を保証する基準ではありません。
+
+| ページ | Title | description | H1 | canonical・OGP | 内部リンク | 画像 | JSON-LD |
+|---|---|---|---|---|---|---|---|
+| index.html | Pass | Fail | Fail | Fail | Pass | Pass | Fail |
+| news.html | Pass | Fail | Fail | Fail | Fail | Pass | Fail |
+| contact.html | Pass | Fail | Fail | Fail | Fail | Pass | Fail |
+| credits.html | Pass | Fail | Pass | Fail | Fail | Pass | Fail |
+| annai/index.html | Pass | Fail | Pass | Fail | Fail | Pass | Fail |
+| meieki/index.html | Pass | Fail | Pass | Fail | Fail | Pass | Fail |
+| topics/meieki-redevelopment/index.html | Pass | Fail | Pass | Fail | Fail | Pass | Pass |
+
+- descriptionは34〜75文字から88〜96文字の1文に改稿し、OGPとJSON-LDの説明も揃えました。写真クレジットのOGPはトップのコピーから当該ページの内容へ修正しました。
+- 単一H1を維持し、トップは「名古屋を、読み解く。」、お知らせは「お知らせ。」、お問い合わせは「お問い合わせ。」へ変更しました。その他の見出しは維持しています。
+- canonical・OGP・Twitter画像・JSON-LD・サイトマップ・robots.txtを正規オリジンに統一しました。別配信の森道アプリへの外部リンクは従来のURLを保持しています。
+- トップの既存 `NewsMediaOrganization` にIDを付け、同じ発行者を参照する `WebSite` を追加しました。`sameAs` はフッターのnote・X・Instagram・Threads・Substackの5アカウントと一致します。
+- 特集の既存 `Article`・`BreadcrumbList` を更新し、お知らせは `CollectionPage`、問い合わせは `ContactPage`、その他は `WebPage` を追加しました。記事の資料確認日・公開日は変更していません。
+- 既存のフッター内に、名古屋駅再開発・ナゴヤ案内所などへの説明的なリンクを確保しました。自己リンクを除き、各ページから異なる重要ページへ2本以上あります。リンクは画面に表示し、隠しリンクは使っていません。
+- 意味のある画像のalt・width・heightは既存で充足していたため維持しました。CSS・画像・モーション用および共通JavaScriptは変更していません。
+
+`sitemap.xml` と `robots.txt` は静的サイトのルートにあります。サイトマップは上記のうち休止中の `/meieki/` を除く公開6ページです。同ページの既存 `noindex,follow` は保持し、robotsでクロールを遮断していません。業務リポジトリ内の画像制作用HTML、原稿、レビューなど、公式サイトの配信ルート外にあるHTMLは含めません。更新根拠のないlastmodや更新頻度・優先度は出力していません。
+
+検証はネットワークを使わない静的検査と、外部通信を遮断した専用Chromeで実施しました。修正後は全7ページ×7項目の49項目がPassです。7ページを1440・768・390・360px幅で変更前後56通り確認し、横方向のはみ出しや画像の読込失敗はありません。H1・本文・ヒーロー画像・フッターナビの高さは維持され、休止ページのみ追加フッターに応じて本文下の余白が約22px短くなっています。トップとフッターはデスクトップ・スマートフォンの実画像でも確認しました。モーションの既存11テストは合格しています。
+
+公開サーバーの応答、旧配信元からのリダイレクト、検索エンジンによるインデックス採用は公開時の確認事項です。案内所の既存API接続先判定はGitHub Pages用のまま保持しており、Cloudflare Pagesでの質問送信・回答動作は今回検証していません。
+
+参照：[Googleの正規URL指定](https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls)、[サイトマップ](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap)、[構造化データ](https://developers.google.com/search/docs/appearance/structured-data/sd-policies)。
