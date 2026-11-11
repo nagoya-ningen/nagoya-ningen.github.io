@@ -111,7 +111,7 @@ html[data-motion='paused'] .reel-type-lines { opacity: 1; }
   .brand-official { width: 168px; }
   .hero-layout { grid-template-columns: 1fr; }
   .hero-visual-motion { margin-left: 0; }
-  .hero h1 { font-size: clamp(66px,13vw,100px); }
+  .hero .hero-headline { font-size: clamp(66px,13vw,100px); }
   .motion-reel { height: auto; aspect-ratio: 1 / 1.06; }
   .reel-type-lines { font-size: 19vw; }
   .reel-caption-top { top: 20px; left: 20px; right: 20px; }
@@ -127,7 +127,7 @@ html[data-motion='paused'] .reel-type-lines { opacity: 1; }
   .footer-top { gap: 22px; }
 }
 @media (max-width:450px) {
-  .hero h1 { font-size: 18vw; }
+  .hero .hero-headline { font-size: 18vw; }
   .motion-reel { aspect-ratio: 1 / 1.18; }
   .reel-caption-top { font-size: 9px; gap: 6px; }
   .reel-poster { inset: 15% 8% 15%; }

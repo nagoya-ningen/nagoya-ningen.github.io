@@ -227,7 +227,7 @@ a:focus-visible,button:focus-visible {
   height:2px;
   background:var(--orange)
 }
-.hero h1 {
+.hero .hero-headline {
   font-weight:900;
   letter-spacing:-.08em;
   font-size:clamp(64px,7.8vw,121px);
@@ -382,7 +382,7 @@ a:focus-visible,button:focus-visible {
     font-size:11px;
     gap:10px
   }
-  .hero h1 {
+  .hero .hero-headline {
     font-size:8vw
   }
   .hero-copy {
@@ -425,7 +425,7 @@ a:focus-visible,button:focus-visible {
   .hero-copy {
     padding:18px 0 34px
   }
-  .hero h1 {
+  .hero .hero-headline {
     font-size:clamp(66px,13vw,100px);
     margin:24px 0 22px
   }
@@ -461,7 +461,7 @@ a:focus-visible,button:focus-visible {
   }
 }
 @media(max-width:450px) {
-  .hero h1 {
+  .hero .hero-headline {
     font-size:18vw
   }
   .hero-topline {
@@ -1621,7 +1621,7 @@ a:focus-visible,button:focus-visible {
     font-size:12px;
     gap:10px
   }
-  .hero h1 {
+  .hero .hero-headline {
     font-size:8vw
   }
   .hero-description {
@@ -1678,7 +1678,7 @@ a:focus-visible,button:focus-visible {
   .hero-bottom span:last-child {
     font-size:10px
   }
-  .hero h1 {
+  .hero .hero-headline {
     font-size:18vw
   }
 }

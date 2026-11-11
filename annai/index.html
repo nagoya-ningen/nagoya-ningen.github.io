@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ナゴヤ案内所 | ナゴヤ人間</title>
-<meta name="description" content="名古屋の批評メディア「ナゴヤ人間」の記事アーカイブだけを根拠に、名駅の再開発や街の文化などの質問に出典付きで答えるAI案内所で、回答の根拠となった記事を確かめながら関心のあるテーマを探せます。">
+<title>ナゴヤ案内所 — テーマから街を読み解く｜ナゴヤ人間</title>
+<meta name="description" content="名古屋・愛知を読み解くナゴヤ人間の記事と制作アプリを、都市と再開発、スポーツと都市、暮らしとインフラ、カルチャーと地域、ラボの5つの入口に整理し、関心のあるテーマから公開記事や制作物を探せる案内所です。">
 <link rel="canonical" href="https://nagoya-ningen.pages.dev/annai/">
-<meta property="og:title" content="ナゴヤ案内所 | ナゴヤ人間">
-<meta property="og:description" content="名古屋の批評メディア「ナゴヤ人間」の記事アーカイブだけを根拠に、名駅の再開発や街の文化などの質問に出典付きで答えるAI案内所で、回答の根拠となった記事を確かめながら関心のあるテーマを探せます。">
+<meta property="og:title" content="ナゴヤ案内所 — テーマから街を読み解く｜ナゴヤ人間">
+<meta property="og:description" content="名古屋・愛知を読み解くナゴヤ人間の記事と制作アプリを、都市と再開発、スポーツと都市、暮らしとインフラ、カルチャーと地域、ラボの5つの入口に整理し、関心のあるテーマから公開記事や制作物を探せる案内所です。">
 <meta property="og:url" content="https://nagoya-ningen.pages.dev/annai/">
 <meta property="og:image" content="https://nagoya-ningen.pages.dev/img/og/og-card.png">
 <style>
@@ -66,6 +66,18 @@
   footer .inner{max-width:720px;margin:0 auto;padding-bottom:16px}
   footer a{color:var(--dim)}
   .band{height:8px;background:linear-gradient(90deg,var(--yellow),var(--orange),var(--site))}
+  .hub-nav{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 30px}
+  .hub-nav a{display:inline-block;color:var(--ink);text-decoration:none}
+  .hub-section{margin:26px 0;padding:22px 0;border-top:1px solid var(--line);scroll-margin-top:18px}
+  .hub-section h2,.ask-section h2{font-size:21px;line-height:1.55;color:var(--yellow);margin-bottom:10px}
+  .hub-section>p{color:var(--dim);font-size:14px;line-height:1.9;margin-bottom:16px}
+  .hub-entry{padding:17px;border:1px solid var(--line);border-radius:10px;background:var(--card);margin-top:12px}
+  .hub-entry h3{font-size:16px;line-height:1.7;overflow-wrap:anywhere}
+  .hub-entry a{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
+  .hub-entry a:hover,.hub-entry a:focus-visible{color:var(--green)}
+  .hub-entry p{font-size:13.5px;line-height:1.9;color:var(--dim);margin-top:8px}
+  .hub-entry .entry-source{font-family:var(--mono);font-size:11px;color:var(--green);margin-top:10px}
+  .ask-section{border-top:1px solid var(--line);padding-top:24px;margin-top:30px}
 </style>
 <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
@@ -77,11 +89,11 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebPage",
+  "@type": "CollectionPage",
   "@id": "https://nagoya-ningen.pages.dev/annai/#webpage",
   "url": "https://nagoya-ningen.pages.dev/annai/",
-  "name": "ナゴヤ案内所 | ナゴヤ人間",
-  "description": "名古屋の批評メディア「ナゴヤ人間」の記事アーカイブだけを根拠に、名駅の再開発や街の文化などの質問に出典付きで答えるAI案内所で、回答の根拠となった記事を確かめながら関心のあるテーマを探せます。",
+  "name": "ナゴヤ案内所 — テーマから街を読み解く｜ナゴヤ人間",
+  "description": "名古屋・愛知を読み解くナゴヤ人間の記事と制作アプリを、都市と再開発、スポーツと都市、暮らしとインフラ、カルチャーと地域、ラボの5つの入口に整理し、関心のあるテーマから公開記事や制作物を探せる案内所です。",
   "inLanguage": "ja",
   "isPartOf": {
     "@type": "WebSite",
@@ -94,9 +106,41 @@
 </head>
 <body>
 <main>
-  <span class="badge">&gt; ナゴヤ人間ラボ 制作記録</span>
+  <span class="badge">&gt; ナゴヤ人間 / テーマガイド</span>
   <h1>ナゴヤ<span class="y">案内所</span></h1>
-  <p class="sub">名古屋の批評メディア「ナゴヤ人間」の記事アーカイブだけを根拠に、出典付きで質問に答えます。記事にないことは、答えません。</p>
+  <p class="sub">街を、読み解く入口。気になるテーマから、記事とつくった道具へ。</p>
+<nav class="hub-nav" aria-label="テーマから探す"><a class="chip" href="#urban">都市と再開発</a><a class="chip" href="#sports">スポーツと都市</a><a class="chip" href="#infrastructure">暮らしとインフラ</a><a class="chip" href="#culture">カルチャーと地域</a><a class="chip" href="#lab">ラボ制作アプリ</a></nav>
+<section class="hub-section" id="urban" aria-labelledby="urban-title">
+<h2 id="urban-title">都市と再開発</h2>
+<p>新しいビルの、その先へ。計画の主体や未定事項を分けながら、街の変化をたどります。</p>
+<article class="hub-entry"><h3><a href="/topics/meieki-redevelopment/">名古屋駅再開発の全体像を一次資料で整理</a></h3><p>名鉄・リニア・駅前広場の進捗と未定事項を、公式資料から読み解く特集です。</p><p class="entry-source">サイト内特集</p></article>
+<article class="hub-entry"><h3><a href="https://note.com/citypod_nagoya/n/n4e37db82afd6">グラングリーン大阪は、なぜ「計画」で終わらなかったのか</a></h3><p>名古屋の外へ視点を広げ、都市を比較する記事です。</p><p class="entry-source">noteの記事</p></article>
+</section>
+<section class="hub-section" id="sports" aria-labelledby="sports-title">
+<h2 id="sports-title">スポーツと都市</h2>
+<p>勝敗と、街のにぎわいのあいだ。観客の動きや興行の仕組みから、スポーツと都市の関係を考えます。</p>
+<article class="hub-entry"><h3><a href="https://note.com/citypod_nagoya/n/n93aa6a5f4853">中日ドラゴンズはなぜ、弱くても満席になるのか</a></h3><p>勝敗だけでは説明できない観客動員を、ファンの行動と興行の仕組みから考えます。</p><p class="entry-source">noteの記事</p></article>
+</section>
+<section class="hub-section" id="infrastructure" aria-labelledby="infrastructure-title">
+<h2 id="infrastructure-title">暮らしとインフラ</h2>
+<p>ふだんは見えない、暮らしの土台へ。雨や街の備えを手がかりに、身近なインフラを読み解きます。</p>
+<article class="hub-entry"><h3><a href="https://note.com/citypod_nagoya/n/nf5e394fe792a">1時間104.5ミリの夜、地下50メートルの「10万トン」は何を意味するのか</a></h3><p>大雨と地下の治水施設をめぐる記事です。</p><p class="entry-source">noteの記事</p></article>
+</section>
+<section class="hub-section" id="culture" aria-labelledby="culture-title">
+<h2 id="culture-title">カルチャーと地域</h2>
+<p>キャラクターも、街を見る入口に。つくられたものと、それを受け取る地域のつながりを考えます。</p>
+<article class="hub-entry"><h3><a href="https://note.com/citypod_nagoya/n/n06c96999290a">ブルーハムハムの作者が手がけた「ドルチィ」——新マスコットはドルフィンズの何を変えるのか</a></h3><p>新しいマスコットを通じて、クラブと地域の関係を考える記事です。</p><p class="entry-source">noteの記事</p></article>
+</section>
+<section class="hub-section" id="lab" aria-labelledby="lab-title">
+<h2 id="lab-title">ラボ制作アプリ</h2>
+<p>読むことから、つくることへ。街やイベントを楽しむために制作した道具を案内します。</p>
+<article class="hub-entry"><h3><a href="https://nagoya-ningen.github.io/morimichi-app/">森、道、市場 ガイド</a></h3><p>会場マップとお店をつなぐ非公式ガイド。2026年開催分の制作アーカイブです。</p><p class="entry-source">外部の制作アプリ</p></article>
+<article class="hub-entry"><h3><a href="https://nagoya-ningen.github.io/watashi-no-morimichi/">わたしの森道</a></h3><p>行った店や気になった店の記憶を、一枚の画像にまとめる道具です。</p><p class="entry-source">外部の制作アプリ</p></article>
+<article class="hub-entry"><h3><a href="https://241yusei.github.io/nagoya-run-3d/">ナゴヤ人間 RUN 3D</a></h3><p>ブラウザで楽しむ、名古屋の街を駆け抜けるランゲームです。</p><p class="entry-source">外部の制作アプリ</p></article>
+</section>
+<section class="ask-section" aria-labelledby="ask-title">
+<h2 id="ask-title">記事から、もう一歩。</h2>
+<p class="sub">名古屋の批評メディア「ナゴヤ人間」の記事アーカイブだけを根拠に、出典付きで質問に答えます。記事にないことは、答えません。</p>
 
   <div class="chips" id="chips">
     <button class="chip">名駅の再開発は今どうなっていますか</button>
@@ -112,6 +156,7 @@
   <div id="gate" role="status">
     本日の無料枠（<b>3問</b>）を使い切りました。日本時間の日付が変わると、また利用できます。
   </div>
+</section>
 </main>
 
 <form id="ask">
