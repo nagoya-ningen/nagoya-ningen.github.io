@@ -1,32 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://nagoya-ningen.github.io/</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <loc>https://nagoya-ningen.pages.dev/annai/</loc>
   </url>
   <url>
-    <loc>https://nagoya-ningen.github.io/news.html</loc>
-    <lastmod>2026-09-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://nagoya-ningen.pages.dev/contact</loc>
   </url>
   <url>
-    <loc>https://nagoya-ningen.github.io/contact.html</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <loc>https://nagoya-ningen.pages.dev/credits</loc>
   </url>
   <url>
-    <loc>https://nagoya-ningen.github.io/annai/</loc>
-    <lastmod>2026-09-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://nagoya-ningen.pages.dev/</loc>
   </url>
-  <url><loc>https://nagoya-ningen.github.io/credits.html</loc></url>
   <url>
-    <loc>https://nagoya-ningen.github.io/topics/meieki-redevelopment/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <loc>https://nagoya-ningen.pages.dev/news</loc>
+  </url>
+  <url>
+    <loc>https://nagoya-ningen.pages.dev/topics/meieki-redevelopment/</loc>
+    <lastmod>2026-11-11</lastmod>
   </url>
 </urlset>
