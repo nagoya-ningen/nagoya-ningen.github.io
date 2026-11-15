@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { normalizeText, normalizeState, needsFreshnessWarning, readState, shareUrl, stateParams, stateUrl,
-  filterProjects, matchesPeriod, plannedPeriodEnd, projectWards, todayJst, toggleComparison, uniqueKnownIds,
+  filterProjects, matchesMilestone, matchesPeriod, plannedPeriodEnd, projectWards, todayJst, toggleComparison, uniqueKnownIds,
   MAX_URL_LENGTH, WARDS } from '../js/redevelopment-core.mjs';
 
 const projects = [
@@ -174,4 +174,41 @@ test('sharing retains ward and period while excluding browser-private saved filt
   assert.equal(shared.searchParams.get('period'), 'undated');
   assert.equal(shared.searchParams.has('saved'), false);
   assert.equal(current.saved, true);
+});
+
+test('milestone selection survives reload, sharing and view changes without losing other conditions', () => {
+  for (const view of ['cards', 'compact', 'timeline']) {
+    const current = state({ view, milestone: 'planned', ward: '中区', period: 'upcoming', saved: true, compare: ['station', 'park'] });
+    const url = stateUrl('https://example.test/redevelopment/#explore', current, projects);
+    assert.equal(url.searchParams.get('milestone'), 'planned');
+    assert.deepEqual(readState(url.search, projects), current);
+    assert.deepEqual(readState(shareUrl(url.href, current, projects).search, projects), { ...current, saved: false });
+  }
+  assert.equal(readState('?view=timeline&milestone=unknown', projects).milestone, '');
+  assert.equal(stateParams(state({ milestone: '' }), projects).has('milestone'), false);
+});
+
+test('timeline filtering follows source kind, retaining past plans and distinguishing undated records', () => {
+  const entries = [
+    { date: '2020-01-01', kind: 'planned' },
+    { date: '2027年度', kind: 'planned' },
+    { date: '2026-11-01', kind: 'actual' },
+    { date: '未定', kind: 'undated' },
+  ];
+  const original = JSON.stringify(entries);
+  assert.deepEqual(entries.filter(item => matchesMilestone(item.kind, 'planned')).map(item => item.date), ['2020-01-01', '2027年度']);
+  assert.deepEqual(entries.filter(item => matchesMilestone(item.kind, 'actual')).map(item => item.date), ['2026-11-01']);
+  assert.deepEqual(entries.filter(item => matchesMilestone(item.kind, 'undated')).map(item => item.date), ['未定']);
+  assert.equal(entries.filter(item => matchesMilestone(item.kind, '')).length, 4);
+  assert.equal(JSON.stringify(entries), original);
+});
+
+test('a timeline with no matching milestones keeps its matching project and saved/comparison selections', () => {
+  const records = [{ ...projects[1], milestones: [{ date: '2020-01-01', kind: 'actual' }] }];
+  const selected = normalizeState({ q: '公園', milestone: 'planned', view: 'timeline', saved: true, compare: ['park'] }, records);
+  const matching = filterProjects(records, selected, ['park']);
+  assert.deepEqual(matching.map(project => project.id), ['park']);
+  assert.equal(matching.flatMap(project => project.milestones).filter(item => matchesMilestone(item.kind, selected.milestone)).length, 0);
+  for (const view of ['cards', 'compact']) assert.deepEqual(filterProjects(records, { ...selected, view }, ['park']).map(project => project.id), ['park']);
+  assert.deepEqual(selected.compare, ['park']);
 });

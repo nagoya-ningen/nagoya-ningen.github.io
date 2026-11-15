@@ -1,4 +1,4 @@
-import { MAX_QUERY_LENGTH, PERIOD_LABELS, filterProjects, needsFreshnessWarning, normalizeState,
+import { MAX_QUERY_LENGTH, MILESTONE_LABELS, PERIOD_LABELS, filterProjects, matchesMilestone, needsFreshnessWarning, normalizeState,
   readState, shareUrl, stateUrl, todayJst, toggleComparison, uniqueKnownIds } from './redevelopment-core.mjs';
 
 const dataNode = document.querySelector('#redevelopment-data');
@@ -29,7 +29,7 @@ function initialize(data) {
   const controls = Object.fromEntries(['q', 'area', 'status', 'category', 'sort']
     .map(key => [key, form.elements.namedItem(key)]));
   if (Object.values(controls).some(control => !control)) return;
-  for (const key of ['ward', 'period']) {
+  for (const key of ['ward', 'period', 'milestone']) {
     const control = form.elements.namedItem(key);
     if (control) controls[key] = control;
   }
@@ -160,7 +160,19 @@ function initialize(data) {
     const visibleIds = new Set(visible.map(project => project.id));
     for (const [id, card] of cards) card.hidden = !visibleIds.has(id);
     for (const project of visible) if (cards.has(project.id)) grid.append(cards.get(project.id));
-    for (const item of $$('[data-timeline-project]')) item.hidden = !visibleIds.has(item.dataset.timelineProject);
+    let totalMilestones = 0;
+    let visibleMilestones = 0;
+    const milestoneProjects = new Set();
+    for (const item of $$('[data-timeline-project]')) {
+      const projectMatches = visibleIds.has(item.dataset.timelineProject);
+      if (projectMatches) totalMilestones++;
+      item.hidden = !projectMatches || !matchesMilestone(item.dataset.milestoneKind, state.milestone);
+      if (!item.hidden) { visibleMilestones++; milestoneProjects.add(item.dataset.timelineProject); }
+    }
+    const timelineCount = $('#timeline-count');
+    if (timelineCount) timelineCount.textContent = `年表：${totalMilestones}節目中 ${visibleMilestones}節目を表示（${MILESTONE_LABELS[state.milestone] || 'すべて'} / ${milestoneProjects.size}案件）`;
+    const timelineEmpty = $('#timeline-empty');
+    if (timelineEmpty) timelineEmpty.hidden = visible.length === 0 || visibleMilestones > 0;
     const visibleYears = new Set();
     for (const group of $$('[data-timeline-group]')) {
       group.hidden = ![...group.querySelectorAll('[data-timeline-project]')].some(item => !item.hidden);
@@ -178,7 +190,7 @@ function initialize(data) {
     if (timeline) timeline.hidden = state.view !== 'timeline';
     empty.hidden = visible.length > 0;
     const context = [state.ward, PERIOD_LABELS[state.period], state.saved ? 'このブラウザで保存した計画' : ''].filter(Boolean);
-    count.textContent = `${projects.length}件中 ${visible.length}件${context.length ? `（${context.join(' / ')}）` : ''}`;
+    count.textContent = `案件：${projects.length}件中 ${visible.length}件${context.length ? `（${context.join(' / ')}）` : ''}`;
     for (const button of $$('[data-view]')) button.setAttribute('aria-pressed', String(button.dataset.view === state.view));
     for (const button of $$('[data-save]')) {
       const isSaved = saved.includes(button.dataset.save);
@@ -211,6 +223,7 @@ function initialize(data) {
     if (!composing && !event.isComposing) timer = setTimeout(() => readControls(), 180);
   });
   form.addEventListener('change', event => { if (event.target !== controls.q) readControls('push'); });
+  if (controls.milestone && !form.contains(controls.milestone)) controls.milestone.addEventListener('change', () => readControls('push'));
   if (savedOnly && !form.contains(savedOnly)) savedOnly.addEventListener('change', () => readControls('push'));
   form.addEventListener('submit', event => { event.preventDefault(); if (!composing) readControls('push'); });
   window.addEventListener('popstate', () => {
@@ -243,6 +256,10 @@ function initialize(data) {
       restoreControls(); writeUrl('push', 'explore'); render();
       const explore = $('#explore');
       if (explore) { explore.tabIndex = -1; explore.focus({ preventScroll: true }); explore.scrollIntoView({ block: 'start' }); }
+    } else if (button.matches('[data-reset-milestone]')) {
+      event.preventDefault(); clearTimeout(timer);
+      state = normalizeState({ ...state, milestone: '' }, projects);
+      restoreControls(); writeUrl('push'); render(); controls.milestone?.focus();
     } else if (button.matches('[data-reset]')) {
       event.preventDefault(); clearTimeout(timer);
       state = normalizeState({ view: state.view, compare: state.compare }, projects);

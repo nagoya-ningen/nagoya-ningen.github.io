@@ -4,6 +4,12 @@ export const MAX_URL_LENGTH = 2000;
 export const WARDS = Object.freeze(['千種区', '東区', '北区', '西区', '中村区', '中区', '昭和区', '瑞穂区',
   '熱田区', '中川区', '港区', '南区', '守山区', '緑区', '名東区', '天白区']);
 export const PERIOD_LABELS = Object.freeze({ upcoming: '今後・時期確認中の予定', undated: '時期未定・未確認', open: '完成・供用' });
+export const MILESTONE_LABELS = Object.freeze({ planned: '予定', actual: '実績・公表', undated: '未定' });
+
+export function matchesMilestone(kind, filter = '') {
+  // This is the source's classification, not a calculation from today's date.
+  return !Object.hasOwn(MILESTONE_LABELS, filter) || kind === filter;
+}
 
 export function todayJst(now = new Date()) {
   const parts = Object.fromEntries(new Intl.DateTimeFormat('en', {
@@ -113,6 +119,7 @@ export function normalizeState(input = {}, projects = []) {
     category: allowed('category').has(input.category) ? input.category : '',
     sort: input.sort === 'checked' ? 'checked' : 'area',
     view: ['compact', 'timeline'].includes(input.view) ? input.view : 'cards',
+    milestone: Object.hasOwn(MILESTONE_LABELS, input.milestone) ? input.milestone : '',
     saved: input.saved === true || input.saved === '1',
     compare: uniqueKnownIds(input.compare, projects, MAX_COMPARE),
   };
@@ -124,7 +131,7 @@ export function readState(search = '', projects = []) {
     q: params.get('q'), area: params.get('area'), ward: params.get('ward'),
     period: params.get('period'), status: params.get('status'),
     category: params.get('category'), sort: params.get('sort'),
-    view: params.get('view'), saved: params.get('saved'),
+    view: params.get('view'), milestone: params.get('milestone'), saved: params.get('saved'),
     compare: (params.get('compare') || '').split(','),
   }, projects);
 }
@@ -132,7 +139,7 @@ export function readState(search = '', projects = []) {
 export function stateParams(input, projects = []) {
   const state = normalizeState(input, projects);
   const params = new URLSearchParams();
-  for (const key of ['q', 'area', 'ward', 'period', 'status', 'category']) {
+  for (const key of ['q', 'area', 'ward', 'period', 'status', 'category', 'milestone']) {
     if (state[key]) params.set(key, state[key]);
   }
   if (state.sort !== 'area') params.set('sort', state.sort);
