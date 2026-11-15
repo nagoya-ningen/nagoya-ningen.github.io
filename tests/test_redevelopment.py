@@ -32,6 +32,8 @@ class RedevelopmentTests(unittest.TestCase):
     def test_seasons_and_fiscal_years_are_not_lexicographic(self):
         dates = ['2027-07-01', '2027年春', '2027年秋', '2027-01-01', '2027年度']
         self.assertEqual(sorted(dates, key=builder.date_sort), ['2027-01-01', '2027年春', '2027年度', '2027-07-01', '2027年秋'])
+        self.assertEqual(sorted(['2017年10月', '2017年2月', '2017-07-01'], key=builder.date_sort),
+                         ['2017年2月', '2017-07-01', '2017年10月'])
 
     def test_no_javascript_reader_gets_every_project_and_official_source(self):
         hub = (ROOT / 'redevelopment/index.html').read_text()
@@ -81,6 +83,29 @@ class RedevelopmentTests(unittest.TestCase):
             self.assertNotRegex(content, r'\[CHECK:|TODO|容量制限|/private/tmp/|/Users/')
             self.assertEqual(len(re.findall(r'<h1(?:\s|>)', content)), 1)
             self.assertIn('/css/motion.css', content)
+
+    def test_coverage_matches_known_projects_without_counting_uncollected_rows(self):
+        known = {p['id'] for p in self.data['projects']}
+        markup = builder.coverage(self.data)
+        for check in self.data['coverageChecks']:
+            included = [row for row in check['rows'] if row.get('projectId')]
+            self.assertIn(f'{len(included)} / {len(check["rows"])}地区', markup)
+            for row in included:
+                self.assertIn(row['projectId'], known)
+                self.assertIn('/redevelopment/' + row['projectId'] + '/', markup)
+        self.assertIn('全計画数や工事の進捗率ではありません', markup)
+
+    def test_public_entry_counts_and_news_agree_with_the_dataset(self):
+        count = str(len(self.data['projects']))
+        for name in ['index.html', 'annai/index.html']:
+            counts = re.findall(r'<span data-guide-project-count>([0-9]+)</span>', (ROOT / name).read_text())
+            self.assertTrue(counts)
+            self.assertEqual(set(counts), {count})
+        news = json.loads((ROOT / 'data/news.json').read_text())
+        title = next(item['title'] for item in news if item['url'] == '/redevelopment/')
+        self.assertIn(count + '件', title)
+        for name in ['index.html', 'news.html']:
+            self.assertIn(builder.e(title), (ROOT / name).read_text())
 
 
 if __name__ == '__main__':

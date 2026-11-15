@@ -39,6 +39,12 @@ def load_data():
         for m in p["milestones"]:
             assert m["kind"] in ("actual", "planned", "undated")
     assert {w for p in data['projects'] for w in p['wards']} == wards, 'Every ward must have a verified project'
+    for check in data.get('coverageChecks', []):
+        assert check['sourceUrl'].startswith('https://') and check['rows']
+        assert check['checkedAt'] <= DATE
+        assert len({row['name'] for row in check['rows']}) == len(check['rows'])
+        for row in check['rows']:
+            assert not row.get('projectId') or row['projectId'] in ids, row
     return data
 
 
@@ -96,7 +102,7 @@ def date_sort(value):
     year = re.match(r'^(\d{4})', value)
     if not year:
         return (9999, 99, value)
-    month = re.match(r'^\d{4}-(\d{2})', value)
+    month = re.match(r'^\d{4}(?:-|年)(\d{1,2})(?:-|月|$)', value)
     if month:
         return (int(year[1]), int(month[1]), value)
     bucket = next((n for word, n in [('初頭', 1), ('春', 3), ('夏', 6), ('秋', 9), ('冬', 12), ('年度', 4)] if word in value), 1)
@@ -145,6 +151,39 @@ def ward_page(ward, data):
     target.write_text(page(ward['name'] + 'の再開発・街の変化｜予定と公式資料｜ナゴヤ人間', ward['intro'] + f' 一次資料で確認した{len(projects)}件の予定・進捗・暮らしへの接点。', path, body, schema))
 
 
+def coverage(data):
+    sections = []
+    for check in data.get('coverageChecks', []):
+        rows = []
+        count = sum(bool(row.get('projectId')) for row in check['rows'])
+        for row in check['rows']:
+            if row.get('projectId'):
+                name = f'<a href="/redevelopment/{e(row["projectId"])}/">{e(row["name"])} →</a>'
+                state = '収録済み'
+            else:
+                name, state = e(row['name']), '個別情報は未収録'
+            rows.append(f'<li><span>{name}</span><span>{state}</span></li>')
+        sections.append(f'<details class="coverage-check"><summary><span>{e(check["title"])}</span><b>{count} / {len(rows)}地区</b></summary><p>{e(check["scope"])}</p><p class="coverage-source"><a href="{e(check["sourceUrl"])}">{e(check["sourceTitle"])} ↗</a> · 照合 {e(check["checkedAt"])}</p><ul>{"".join(rows)}</ul><p>{e(check["note"])}</p></details>')
+    return '<section id="coverage" class="guide-coverage"><p class="guide-kicker">COVERAGE CHECK</p><h2>どこまで、確認した？</h2><p class="coverage-intro">公式一覧の掲載地区と、このガイドの案件を照合しています。数字の分母は各一覧の対象地区数です。名古屋市内の全計画数や工事の進捗率ではありません。</p>' + ''.join(sections) + '<p class="coverage-note">一覧の基準時点と現在の状態は異なる場合があります。各案件の詳細資料を併せて確認しています。未収録は、計画がないことや中止を意味しません。</p></section>'
+
+
+def sync_entries(data):
+    """Keep public entry points in sync with the same editorial dataset."""
+    count = str(len(data['projects']))
+    title = f'再開発ガイドを全16区・{count}件へ拡充。' + data['announcement']
+    for name in ('index.html', 'annai/index.html', 'news.html'):
+        path = ROOT / name
+        content = path.read_text()
+        content = re.sub(r'(<span data-guide-project-count>)[0-9]+(</span>)', lambda m: m[1] + count + m[2], content)
+        content = re.sub(r'(<a href="/redevelopment/" data-guide-announcement>).*?(</a>)', lambda m: m[1] + e(title) + m[2], content)
+        path.write_text(content)
+    path = ROOT / 'data/news.json'
+    news = json.loads(path.read_text())
+    entry = next(item for item in news if item['url'] == '/redevelopment/')
+    entry.update({'date':DATE, 'title':title})
+    path.write_text(json.dumps(news, ensure_ascii=False, indent=2) + '\n')
+
+
 def detail(p, data):
     path = f'/redevelopment/{p["id"]}/'
     changes = ''.join(f'<p><time datetime="{e(c["date"])}">{e(c["date"])}</time> — {e(c["summary"])}</p>' for c in p["changes"])
@@ -186,11 +225,11 @@ def hub(data):
     body = breadcrumbs([('ホーム', '/'), ('再開発ガイド', None)]) + f'''
 <header class="guide-hero"><div><p class="guide-kicker"><span class="guide-live-dot" aria-hidden="true"></span> NAGOYA CITY / DEVELOPMENT GUIDE</p><h1>名古屋の次を、<br>見渡そう<span>。</span></h1><p class="guide-subtitle">名古屋の再開発・街の変化ガイド</p><p class="guide-lead">あの場所は、どう変わる？ いつ変わる？<br>ビルも、駅も、公園も。計画の現在地と、<br class="desktop-only">暮らしへのつながりを、一次資料から。</p><div class="hero-guide-actions"><a class="guide-button" href="#explore">計画を探す <span aria-hidden="true">↓</span></a><a class="guide-link" href="#wards">16区から探す ↓</a></div></div>
 <aside class="guide-index-panel" aria-label="収録計画の概要"><div class="index-panel-heading"><span>CITY INDEX</span><span>16 WARDS</span></div><p class="index-total"><strong>{len(projects)}</strong><span>の計画・施設を<br>ひとつの場所に。</span></p><div class="index-stats">{stats}</div><p class="index-footnote">発表済みの計画から、開業後の変化まで。<br>「予定」と「実績」を分けて掲載。</p></aside></header>
-<div class="guide-dateline"><span>資料確認 <time datetime="{DATE}">{DATE.replace('-', '.')}</time></span><span>{coverage_count}区 / {len(areas)}エリア / 公式出典付き</span><a href="#updates">更新履歴を見る ↗</a></div>
+<div class="guide-dateline"><span>資料確認 <time datetime="{DATE}">{DATE.replace('-', '.')}</time></span><span>{coverage_count}区 / {len(areas)}エリア / 公式出典付き</span><a href="#coverage">公式一覧との収録照合 ↓</a><a href="#updates">更新履歴を見る ↗</a></div>
 <section class="ward-directory" id="wards" aria-labelledby="wards-title"><div class="explore-heading"><div><p class="guide-kicker">YOUR NEIGHBORHOOD</p><h2 id="wards-title">いつもの街から、探す。</h2></div><a class="guide-link" href="#explore">条件を絞って検索 ↓</a></div>{ward_grid(data)}<p class="coverage-note">{coverage_count}区に掲載案件があります。件数は確認できた計画の数です。区をまたぐ事業は各区に含め、全市の合計では1件として数えています。</p></section>
 <section class="guide-highlights" aria-labelledby="highlights-title"><div><p class="guide-kicker">READ THIS FIRST</p><h2 id="highlights-title">まず知りたい、<br>計画の現在地。</h2></div><div class="highlight-items">{''.join(f'<a href="/redevelopment/{p["id"]}/"><span>{e(p["area"])} · {e(p["statusLabel"])}</span><h3>{e(p["title"])}</h3><p>{e(p["schedule"])}</p><b aria-hidden="true">↗</b></a>' for p in [next(x for x in projects if x['id'] == item) for item in data['featured']])}</div></section>
 <details class="area-disclosure"><summary>街・駅の名前から探す</summary><nav class="area-strip" aria-label="エリアから探す">{area_links}</nav></details>
-<section id="explore" class="guide-explore" aria-labelledby="explore-title"><div class="explore-heading"><div><p class="guide-kicker">EXPLORE THE CITY</p><h2 id="explore-title">気になる変化を、探す。</h2></div><div class="view-switch enhancement-only" role="group" aria-label="表示形式"><button type="button" data-view="cards" aria-pressed="true">一覧</button><button type="button" data-view="timeline" aria-pressed="false">年表</button></div></div>
+<section id="explore" class="guide-explore" aria-labelledby="explore-title"><div class="explore-heading"><div><p class="guide-kicker">EXPLORE THE CITY</p><h2 id="explore-title">気になる変化を、探す。</h2></div><div class="view-switch enhancement-only" role="group" aria-label="表示形式"><button type="button" data-view="cards" aria-pressed="true">一覧</button><button type="button" data-view="compact" aria-pressed="false">コンパクト</button><button type="button" data-view="timeline" aria-pressed="false">年表</button></div></div>
 <div class="enhancement-only filter-panel"><form id="project-form" role="search" aria-label="再開発計画を検索"><label class="guide-search-label" for="project-query">施設名・駅・気になる言葉</label><div class="guide-search"><span aria-hidden="true">⌕</span><input id="project-query" name="q" type="search" maxlength="120" placeholder="例：名駅、金山、公園" autocomplete="off"><button type="submit">検索</button></div><div class="guide-filters"><label>行政区<select name="ward"><option value="">すべての区</option>{ward_options}</select></label><label>エリア<select name="area"><option value="">すべてのエリア</option>{option(areas)}</select></label><label>進み具合<select name="status"><option value="">すべての段階</option>{''.join(f'<option value="{k}">{v}</option>' for k,v in STATUSES.items())}</select></label><label>種類<select name="category"><option value="">すべての種類</option>{option(categories)}</select></label><label>予定・供用<select name="period"><option value="">すべての時期</option><option value="upcoming">今後の予定</option><option value="undated">時期未定・未確認</option><option value="open">完成・供用の区分</option></select></label><label>並び順<select name="sort"><option value="area">エリア順</option><option value="checked">確認日の新しい順</option></select></label></div></form><div class="filter-bottom"><label class="saved-toggle"><input id="saved-only" type="checkbox">気になる計画だけ</label><button class="text-button" type="button" data-reset>条件をクリア</button><button class="text-button" id="copy-link" type="button">この条件のURLをコピー ↗</button></div><div id="compare-summary" hidden><span id="compare-summary-count"></span><a class="guide-link" href="#compare-panel">比較を見る ↓</a></div><p id="share-message" class="tool-message" role="status"></p><input id="share-url" aria-label="共有するURL" readonly hidden><p class="local-save-note">「今後の予定」は日程に幅がある予定・時期確認中の予定も含みます。完成・供用は各計画の代表区分で絞り込みます。</p><p class="local-save-note">「気になる」はこのブラウザに保存します。通知・会員登録はありません。共有URLには検索条件と比較対象が含まれます。</p></div>
 <noscript><p class="noscript-note">すべての計画を表示しています。各詳細ページと公式資料をそのまま読めます。検索・比較・保存にはJavaScriptを有効にしてください。</p></noscript>
 <div class="result-heading"><p id="project-count" role="status" aria-live="polite" aria-atomic="true">{len(projects)}件の計画・施設</p><p>各計画の資料確認日を掲載</p></div>
@@ -199,6 +238,7 @@ def hub(data):
 <div id="project-grid" class="project-grid">{''.join(card(p,n) for n,p in enumerate(projects,1))}</div>
 <div id="project-timeline" class="project-timeline" hidden><p class="timeline-intro">公表・開業の実績と今後の予定を並べています。年度・季節表記には時期の幅があります。予定で絞っても、該当する計画の過去の経緯を含めて表示します。年が同じでも事業ごとに段階は異なり、予定の到来だけで完成・開業とは扱いません。</p>{timeline(projects)}</div></section>
 <section id="compare-panel" class="compare-panel" aria-labelledby="compare-title" hidden><div class="explore-heading"><div><p class="guide-kicker">SIDE BY SIDE</p><h2 id="compare-title">計画を、並べて読む。</h2></div><button class="text-button" type="button" data-clear-compare>比較をクリア</button></div><p id="compare-message" role="status" aria-live="polite"></p><div id="compare-content"></div></section>
+{coverage(data)}
 <section class="guide-method" id="guide-method"><div><p class="guide-kicker">ABOUT THIS GUIDE</p><h2>変化の大きさより、<br>暮らしとの近さ。</h2><p>通勤の道、週末の行き先、街に残る場所。計画を知ることを、名古屋での日々を考える手がかりに。</p><a class="guide-link" href="/topics/meieki-redevelopment/">名古屋駅の詳しい特集を読む →</a></div><div class="method-notes"><details open><summary>どこまで収録していますか？</summary><p>名古屋市内の主要な再開発、駅・交通、公園・公共施設、水辺の整備を対象に、公式資料で確認できた{len(projects)}件を掲載しています。全16区に掲載案件がありますが、各区のすべての事業を収録したものではありません。小規模住宅や単店の開店情報は原則対象外です。開業済み施設も街の変化を追うため残しています。</p></details><details><summary>「進み具合」と日付の読み方</summary><p>検討・見直し／計画・準備／工事／完成・供用の4区分は編集上の分類です。複数の段階を持つ案件はラベルと本文で説明しています。資料の公表日、編集部が読んだ確認日、将来の予定日を区別し、旧計画の年度を現行の完成年と扱いません。</p></details><details><summary>市全体をどう確認していますか？</summary><p>行政区別の掲載状況と、市の事業一覧を照らし合わせて収録範囲を広げています。公式一覧にある事業も、個別資料の現在地を確認してから掲載します。</p><ul class="registry-list">{registry_links}</ul></details><details><summary>情報の確認と訂正について</summary><p>自治体・事業者・施設公式の資料に直接リンクし、何を確かめたかを案件別に残します。公表のない内容は推測で埋めません。確認日の後に変更される場合があります。</p><a class="guide-link" href="/contact">誤り・追加情報を知らせる →</a></details></div></section>
 <section class="guide-updates" id="updates"><p class="guide-kicker">EDITOR'S LOG</p><h2>ガイドの更新履歴</h2>{updates}</section>
 <section class="guide-letter"><p class="guide-kicker">LETTERS FROM NAGOYA</p><h2>変わる街の、背景まで。</h2><p>再開発の背景や、名古屋を読む視点をニュースレターで。</p><a class="guide-button" href="https://nagoyaningen.substack.com/">無料ニュースレターを読む ↗</a></section>
@@ -232,6 +272,7 @@ def sitemap(data):
 
 if __name__ == '__main__':
     data = load_data()
+    sync_entries(data)
     hub(data)
     for project in data['projects']:
         detail(project, data)

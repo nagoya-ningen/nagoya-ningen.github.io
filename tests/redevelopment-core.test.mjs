@@ -39,6 +39,24 @@ test('URL state roundtrip retains filters, view, saved mode and comparison', () 
   const expected = state({ q: '歩行者 公園', area: '栄', status: 'open', category: '公園', sort: 'checked', view: 'timeline', saved: true, compare: ['station', 'park'] });
   assert.deepEqual(readState(stateParams(expected, projects).toString(), projects), expected);
 });
+test('compact view survives reload and sharing while preserving filters, sorting and selected records', () => {
+  const current = state({ area: '栄', ward: '中区', period: 'open', sort: 'checked', view: 'compact', saved: true, compare: ['station', 'park'] });
+  const local = stateUrl('https://example.test/redevelopment/#explore', current, projects);
+  assert.equal(local.searchParams.get('view'), 'compact');
+  assert.deepEqual(readState(local.search, projects), current);
+  const shared = shareUrl(local.href, current, projects);
+  assert.deepEqual(readState(shared.search, projects), { ...current, saved: false });
+  assert.equal(shared.hash, '#explore');
+  assert.equal(current.saved, true);
+});
+test('compact view keeps the same filtered and sorted cards as other views', () => {
+  const current = state({ area: '栄', sort: 'checked', saved: true, compare: ['station', 'park'] });
+  for (const view of ['cards', 'compact', 'timeline']) {
+    const restored = readState(stateParams({ ...current, view }, projects).toString(), projects);
+    assert.deepEqual(filterProjects(projects, restored, ['park', 'office']).map(p => p.id), ['office', 'park']);
+    assert.deepEqual(restored.compare, ['station', 'park']);
+  }
+});
 test('unknown URL filters, invalid view and comparison IDs cannot poison state', () => {
   const result = readState('?area=UNKNOWN&status=future&category=nope&view=evil&sort=evil&compare=station,evil,park,station,hall,office', projects);
   assert.equal(result.area, ''); assert.equal(result.status, ''); assert.equal(result.category, '');

@@ -112,7 +112,7 @@ export function normalizeState(input = {}, projects = []) {
     status: allowed('status').has(input.status) ? input.status : '',
     category: allowed('category').has(input.category) ? input.category : '',
     sort: input.sort === 'checked' ? 'checked' : 'area',
-    view: input.view === 'timeline' ? 'timeline' : 'cards',
+    view: ['compact', 'timeline'].includes(input.view) ? input.view : 'cards',
     saved: input.saved === true || input.saved === '1',
     compare: uniqueKnownIds(input.compare, projects, MAX_COMPARE),
   };

@@ -173,7 +173,8 @@ function initialize(data) {
         link.hidden = !visibleYears.has(link.dataset.timelineYear);
       }
     }
-    grid.hidden = state.view !== 'cards';
+    grid.hidden = state.view === 'timeline';
+    grid.classList.toggle('is-compact', state.view === 'compact');
     if (timeline) timeline.hidden = state.view !== 'timeline';
     empty.hidden = visible.length > 0;
     const context = [state.ward, PERIOD_LABELS[state.period], state.saved ? 'このブラウザで保存した計画' : ''].filter(Boolean);
@@ -247,7 +248,7 @@ function initialize(data) {
       state = normalizeState({ view: state.view, compare: state.compare }, projects);
       restoreControls(); writeUrl('push'); render(); controls.q.focus();
     } else if (button.matches('[data-view]')) {
-      state.view = button.dataset.view === 'timeline' ? 'timeline' : 'cards';
+      state.view = normalizeState({ view: button.dataset.view }, projects).view;
       readControls('push');
     } else if (button.matches('[data-save]')) {
       const id = button.dataset.save;
