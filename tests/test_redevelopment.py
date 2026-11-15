@@ -55,6 +55,25 @@ class RedevelopmentTests(unittest.TestCase):
         for suffix in [''] + [p['id'] + '/' for p in self.data['projects']]:
             self.assertIn(builder.ORIGIN + '/redevelopment/' + suffix, urls)
         self.assertNotIn(builder.ORIGIN + '/meieki/', urls)
+        for ward in self.data['wardGuides']:
+            self.assertIn(builder.ORIGIN + '/redevelopment/wards/' + ward['slug'] + '/', urls)
+
+    def test_every_ward_has_real_projects_and_static_pages_only_include_that_ward(self):
+        for ward in self.data['wardGuides']:
+            projects = [p for p in self.data['projects'] if ward['name'] in p['wards']]
+            self.assertTrue(projects, ward['name'])
+            document = (ROOT / 'redevelopment/wards' / ward['slug'] / 'index.html').read_text()
+            ids = set(re.findall(r'data-project-id="([^"]+)"', document))
+            self.assertEqual(ids, {p['id'] for p in projects})
+            self.assertIn(f'{len(projects)}件の計画・施設を収録', document)
+            self.assertNotIn('id="project-form"', document)
+
+    def test_timeline_jump_targets_exist_once_and_multiarea_records_keep_each_ward(self):
+        hub = (ROOT / 'redevelopment/index.html').read_text()
+        for target in re.findall(r'href="#(timeline-[^"]+)"', hub):
+            self.assertEqual(hub.count(f'id="{target}"'), 1)
+        for p in self.data['projects']:
+            self.assertEqual(set(p['wards']), set(re.split('[・、/／]', p['ward'])), p['id'])
 
     def test_public_build_has_no_incomplete_editorial_markers(self):
         for path in (ROOT / 'redevelopment').rglob('*.html'):

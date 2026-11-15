@@ -184,11 +184,13 @@ CSS・JavaScript・画像ファイル・実行scriptは変更なし。写真は�
 
 ## 2026-11-16 再開発・街の変化ガイド
 
-正規公開先は `https://nagoya-ningen.pages.dev/redevelopment/`。名古屋市内の主要24件・9エリアから始め、既存の名駅特集へ接続する。全16区・全事業の完全網羅とは表示しない。古い `website-renewal` 作業branchやGitHubの旧配信mainを、現在のCloudflare公開版へ一括統合しない。
+正規公開先は `https://nagoya-ningen.pages.dev/redevelopment/`。名古屋市16区の主要47件を掲載し、区別の入口と既存の名駅特集へ接続する。各区に掲載案件があることと、各区の全事業の完全網羅は区別する。古い `website-renewal` 作業branchやGitHubの旧配信mainを、現在のCloudflare公開版へ一括統合しない。
 
 - `data/redevelopment.json` が編集データの正本。案件IDはURLになるため保持する。
-- `scripts/build_redevelopment.py` が一覧、案件別詳細、サイトマップを通信なしで生成する。配信時は生成済みHTMLを使い、サーバー側処理・新規依存・外部APIは不要。
-- 名称・地域・進捗・用途の検索、年表、最大3件の比較、ブラウザ内保存、条件共有を備える。保存一覧は端末内だけで、共有リンクには入れない。JavaScriptなしでも全案件と一次資料を読める。
+- `scripts/build_redevelopment.py` が一覧、案件別詳細、16区の専用ページ、サイトマップを通信なしで生成する。配信時は生成済みHTMLを使い、サーバー側処理・新規依存・外部APIは不要。
+- 名称・行政区・地域・進捗・用途・予定時期の検索、年別移動を備えた年表、最大3件の比較、ブラウザ内保存、条件共有を備える。保存一覧は端末内だけで、共有リンクには入れない。JavaScriptなしでも全案件と一次資料を読める。
+- `wards` は行政区の配列で、区境をまたぐ事業は各区の検索と区ページに含む。`wardGuides` は16区の名称・slug・導入文、`officialRegisters` は照合した公式索引。区別件数の合計には重複があり、全市件数はIDで数える。
+- 予定時期の絞り込みはJSTで評価。年度・季節は期間の幅を維持し、解釈できない予定は除外しない。年表は該当案件の過去の経緯も表示する。
 - 事実、資料の公表・更新日、確認日、今後の予定を分ける。`milestones.kind` は `actual` / `planned` / `undated`。予定日が過ぎても自動で完了へ変換しない。
 - `status` は `review` / `planning` / `construction` / `open`。`open` は完成・供用の集約で、暫定利用・一部開業・建物竣工などの違いは `statusLabel` と本文に明記する。
 - 出典には `title` / `url` / `publishedAt` / `verifiedFact` を持たせる。未確認の数字で空欄を埋めず、未定と確認できなかった範囲を区別する。次期開発と暫定施設、工区工期と路線開業を混同しない。

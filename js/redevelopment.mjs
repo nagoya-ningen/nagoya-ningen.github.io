@@ -1,5 +1,5 @@
-import { MAX_QUERY_LENGTH, filterProjects, needsFreshnessWarning, normalizeState,
-  readState, shareUrl, stateUrl, toggleComparison, uniqueKnownIds } from './redevelopment-core.mjs';
+import { MAX_QUERY_LENGTH, PERIOD_LABELS, filterProjects, needsFreshnessWarning, normalizeState,
+  readState, shareUrl, stateUrl, todayJst, toggleComparison, uniqueKnownIds } from './redevelopment-core.mjs';
 
 const dataNode = document.querySelector('#redevelopment-data');
 const form = document.querySelector('#project-form');
@@ -29,6 +29,10 @@ function initialize(data) {
   const controls = Object.fromEntries(['q', 'area', 'status', 'category', 'sort']
     .map(key => [key, form.elements.namedItem(key)]));
   if (Object.values(controls).some(control => !control)) return;
+  for (const key of ['ward', 'period']) {
+    const control = form.elements.namedItem(key);
+    if (control) controls[key] = control;
+  }
   controls.q.maxLength = MAX_QUERY_LENGTH;
   const storageKey = 'nagoya-ningen:redevelopment:saved:v1';
   let storageAvailable = true;
@@ -39,10 +43,7 @@ function initialize(data) {
   let composing = false;
   let timer;
 
-  const todayParts = Object.fromEntries(new Intl.DateTimeFormat('en', {
-    timeZone: 'Asia/Tokyo', year: 'numeric', month: '2-digit', day: '2-digit',
-  }).formatToParts(new Date()).filter(part => part.type !== 'literal').map(part => [part.type, part.value]));
-  const today = `${todayParts.year}-${todayParts.month}-${todayParts.day}`;
+  const today = todayJst();
   const freshness = $('#guide-freshness');
   if (freshness && needsFreshnessWarning(data.updatedAt, today)) {
     freshness.classList.add('is-stale');
@@ -53,9 +54,10 @@ function initialize(data) {
   }
 
   function notify(message) { if (shareMessage) shareMessage.textContent = message; }
-  function writeUrl(mode = 'replace') {
+  function writeUrl(mode = 'replace', hash = null) {
     try {
       const url = stateUrl(location.href, state, projects);
+      if (hash !== null) url.hash = hash;
       const normalized = readState(url.search, projects);
       if (normalized.q !== state.q) {
         state.q = normalized.q;
@@ -154,18 +156,28 @@ function initialize(data) {
   }
 
   function render() {
-    const visible = filterProjects(projects, state, saved);
+    const visible = filterProjects(projects, state, saved, { today: todayJst() });
     const visibleIds = new Set(visible.map(project => project.id));
     for (const [id, card] of cards) card.hidden = !visibleIds.has(id);
     for (const project of visible) if (cards.has(project.id)) grid.append(cards.get(project.id));
     for (const item of $$('[data-timeline-project]')) item.hidden = !visibleIds.has(item.dataset.timelineProject);
+    const visibleYears = new Set();
     for (const group of $$('[data-timeline-group]')) {
       group.hidden = ![...group.querySelectorAll('[data-timeline-project]')].some(item => !item.hidden);
+      if (!group.hidden) visibleYears.add(group.dataset.timelineYear || group.id.replace(/^timeline-/, ''));
+    }
+    const yearNav = $('#timeline-year-nav');
+    if (yearNav) {
+      yearNav.hidden = state.view !== 'timeline' || visibleYears.size === 0;
+      for (const link of yearNav.querySelectorAll('a[data-timeline-year]')) {
+        link.hidden = !visibleYears.has(link.dataset.timelineYear);
+      }
     }
     grid.hidden = state.view !== 'cards';
     if (timeline) timeline.hidden = state.view !== 'timeline';
     empty.hidden = visible.length > 0;
-    count.textContent = `${projects.length}件中 ${visible.length}件${state.saved ? '（このブラウザで保存した計画）' : ''}`;
+    const context = [state.ward, PERIOD_LABELS[state.period], state.saved ? 'このブラウザで保存した計画' : ''].filter(Boolean);
+    count.textContent = `${projects.length}件中 ${visible.length}件${context.length ? `（${context.join(' / ')}）` : ''}`;
     for (const button of $$('[data-view]')) button.setAttribute('aria-pressed', String(button.dataset.view === state.view));
     for (const button of $$('[data-save]')) {
       const isSaved = saved.includes(button.dataset.save);
@@ -213,9 +225,24 @@ function initialize(data) {
   });
 
   document.addEventListener('click', event => {
-    const button = event.target.closest?.('button, a[data-show-project]');
+    const button = event.target.closest?.('button, a[data-show-project], a[data-guide-filter]');
     if (!button) return;
-    if (button.matches('[data-reset]')) {
+    if (button.matches('a[data-guide-filter]')) {
+      if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey ||
+        button.hasAttribute('download') || (button.target && button.target !== '_self')) return;
+      const key = button.dataset.guideFilter;
+      if (!['area', 'ward', 'status'].includes(key)) return;
+      const target = new URL(button.href, location.href);
+      if (target.origin !== location.origin || target.pathname !== location.pathname) return;
+      const candidate = normalizeState({ ...state, [key]: button.dataset.value || '' }, projects);
+      if (candidate[key] !== (button.dataset.value || '')) return;
+      event.preventDefault();
+      readControls();
+      state = normalizeState({ ...state, [key]: candidate[key] }, projects);
+      restoreControls(); writeUrl('push', 'explore'); render();
+      const explore = $('#explore');
+      if (explore) { explore.tabIndex = -1; explore.focus({ preventScroll: true }); explore.scrollIntoView({ block: 'start' }); }
+    } else if (button.matches('[data-reset]')) {
       event.preventDefault(); clearTimeout(timer);
       state = normalizeState({ view: state.view, compare: state.compare }, projects);
       restoreControls(); writeUrl('push'); render(); controls.q.focus();
