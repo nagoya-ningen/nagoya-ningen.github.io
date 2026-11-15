@@ -1,0 +1,1478 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-11-16",
+  "scope": "名古屋市内の主要再開発・交通・公共施設・公園。全事業・全16区の完全網羅を意味しない。",
+  "featured": [
+    "meitetsu-nagoya",
+    "asunal-kanayama",
+    "nagoya-city-museum"
+  ],
+  "projects": [
+    {
+      "id": "meitetsu-nagoya",
+      "title": "名鉄名古屋駅地区再開発",
+      "area": "名駅・ささしま",
+      "ward": "中村区",
+      "category": "駅・交通",
+      "status": "review",
+      "statusLabel": "計画見直し中",
+      "schedule": "着工・竣工時期は未定。2026年度内に見直しの方向性を公表する予定。",
+      "summary": "名鉄名古屋駅の再整備と周辺街区の開発を再検証中。施工体制の確保、工事費、長期の工程を踏まえ、投資規模を縮小する方向で検討している。",
+      "livingImpact": "通勤の乗換えやバス利用、駅前の買い物に関わる計画。旧発表にある完成年を前提に住まいや通勤を判断せず、各施設の営業案内と見直し発表を分けて確認したい。",
+      "uncertainty": "旧計画の2033年度・2040年代前半という竣工予定は、2025年12月に未定へ変更済み。新しい規模・工程・事業体制は確定していない。",
+      "officialSources": [
+        {
+          "title": "名古屋駅地区再開発計画等のスケジュール変更（共同事業者・日本生命）",
+          "url": "https://www.nissay.co.jp/kaisha/news/20251212.html",
+          "publishedAt": "2025-12-12",
+          "verifiedFact": "解体着工、新築着工、1期本工事竣工、2期本工事竣工はいずれも変更後未定。"
+        },
+        {
+          "title": "名古屋鉄道 決算説明会スクリプト・4ページ",
+          "url": "https://www.meitetsu.co.jp/ir/reference/results_briefing/__icsFiles/afieldfile/2026/05/19/kessan_setsumeikai260518_script.pdf",
+          "publishedAt": "2026-05-19",
+          "verifiedFact": "2026年度中に方向性を示す予定、難易度・リスク・投資規模を下げ、外部パートナー導入も検討。"
+        },
+        {
+          "title": "名鉄グループ統合報告書2026・印刷15、16、29、36ページ",
+          "url": "https://www.meitetsu.co.jp/ir/reference/integrated/2026_integratedreports_A4_20261030.pdf",
+          "publishedAt": "2026-10-30",
+          "verifiedFact": "2026年度中に計画見直しの方向性を公表予定。投資規模を縮小し、施工難度・リスクを下げ、外部パートナーとの協業を検討する方針。"
+        }
+      ],
+      "checkedAt": "2026-11-16",
+      "operator": "名古屋鉄道ほか共同事業者",
+      "scale": "見直し中。旧計画の事業規模を現行の確定値として掲載しない。",
+      "milestones": [
+        {
+          "date": "2025-12-12",
+          "label": "従来の工程を未定へ変更、計画の再検証・見直しを公表",
+          "kind": "actual"
+        },
+        {
+          "date": "2026-05-18",
+          "label": "投資規模縮小を前提とする検討方針を説明",
+          "kind": "actual"
+        },
+        {
+          "date": "2026年度",
+          "label": "計画見直しの方向性を公表する予定",
+          "kind": "planned"
+        }
+      ],
+      "aliases": [
+        "名駅",
+        "駅・交通と複合開発"
+      ],
+      "changes": [
+        {
+          "date": "2026-11-16",
+          "summary": "再開発ガイドに収録。資料の時点と予定・未定事項を分けて整理。"
+        }
+      ]
+    },
+    {
+      "id": "linear-nagoya-station",
+      "title": "リニア中央新幹線・名古屋駅",
+      "area": "名駅・ささしま",
+      "ward": "中村区",
+      "category": "駅・交通",
+      "status": "construction",
+      "statusLabel": "工事中・開業時期未確定",
+      "schedule": "品川―名古屋間の開業時期は未確定。駅工事の完成と路線の開業は別の工程。",
+      "summary": "営業中の新幹線・在来線の下にリニアの駅をつくる工事。名古屋駅の駅施設は延長約1kmの計画で、地上から掘り下げる工法などを用いて整備している。",
+      "livingImpact": "駅周辺の工事や通行経路を知るための項目。東京との移動時間だけでなく、普段の駅利用では工事区間と地上・地下の歩行動線を確認したい。",
+      "uncertainty": "2027年開業は実現できないとJR東海が説明。中央東工区（3）の工期は2032年12月31日までだが、個別工区の契約工期であり、名古屋駅全体の完成年・路線の開業年ではない。",
+      "officialSources": [
+        {
+          "title": "JR東海 ターミナル駅の工事",
+          "url": "https://linear-chuo-shinkansen.jr-central.co.jp/plan/eki/",
+          "publishedAt": null,
+          "verifiedFact": "運行中の鉄道地下に駅を建設。名古屋駅の延長約1km・最大幅約60m・面積約3.5ha。"
+        },
+        {
+          "title": "JR東海 リニア中央新幹線 工事の状況",
+          "url": "https://company.jr-central.co.jp/chuoshinkansen/",
+          "publishedAt": null,
+          "verifiedFact": "2026年9月時点の名古屋駅東山線工区の工事写真、同年11月10日の中央東工区契約公表を掲載。"
+        },
+        {
+          "title": "JR東海 統合報告書2025 リニア計画・45ページ",
+          "url": "https://company.jr-central.co.jp/ir/annualreport/_pdf/annualreport2025-12.pdf",
+          "publishedAt": "2025",
+          "verifiedFact": "2027年の開業は実現できない、新たな開業時期を見通せない旨を記載。"
+        },
+        {
+          "title": "JR東海 名古屋駅中央東工区（3）の工事契約",
+          "url": "https://company.jr-central.co.jp/chuoshinkansen/other/_pdf/261110.pdf",
+          "publishedAt": "2026-11-10",
+          "verifiedFact": "契約日2026年10月8日、工期は契約翌日から2032年12月31日。個別工区の契約で、路線開業時期を示す資料ではない。"
+        }
+      ],
+      "checkedAt": "2026-11-16",
+      "operator": "JR東海",
+      "scale": "駅の延長約1km、最大幅約60m、面積約3.5ha。",
+      "milestones": [
+        {
+          "date": "2026-09",
+          "label": "JR東海が名古屋駅東山線工区の工事状況を掲載",
+          "kind": "actual"
+        },
+        {
+          "date": "2026-11-10",
+          "label": "中央東工区（3）の契約情報を公表。工期は2032年12月31日まで",
+          "kind": "actual"
+        },
+        {
+          "date": "2032-12-31",
+          "label": "中央東工区（3）の契約上の工期末。全駅完成・開業の予定日ではない",
+          "kind": "planned"
+        },
+        {
+          "date": "未定",
+          "label": "品川―名古屋間の開業時期",
+          "kind": "undated"
+        }
+      ],
+      "aliases": [
+        "名駅",
+        "駅・交通"
+      ],
+      "changes": [
+        {
+          "date": "2026-11-16",
+          "summary": "再開発ガイドに収録。資料の時点と予定・未定事項を分けて整理。"
+        }
+      ]
+    },
+    {
+      "id": "nagoya-east-square",
+      "title": "名古屋駅東側駅前広場",
+      "area": "名駅・ささしま",
+      "ward": "中村区",
+      "category": "駅・交通",
+      "status": "planning",
+      "statusLabel": "デザイン計画公表・協議中",
+      "schedule": "2026年3月にデザイン計画公表。確認資料に完成日の明記なし。",
+      "summary": "名古屋駅の桜通口側で、駅・地下街・周辺ビルをつなぐ駅前広場を再整備する計画。市はデザインを具体化し、関係者との協議を続けている。",
+      "livingImpact": "待ち合わせや乗換え、駅から街へ歩く動線に直結する。完成予想図だけでなく、歩行経路・乗降場所がいつ変わるかを追う価値がある。",
+      "uncertainty": "デザイン計画の公表は工事完成や供用開始の決定ではない。周辺鉄道事業と関係者協議の進み方を分けて確認する。",
+      "officialSources": [
+        {
+          "title": "名古屋市 名古屋駅東側駅前広場デザイン計画",
+          "url": "https://www.city.nagoya.jp/shisei/keikaku/1009818/1009848/1047417.html",
+          "publishedAt": "2026-03-30",
+          "verifiedFact": "駅前広場のデザインを具体化した計画。引き続き関係者と協議し実現へ取り組む旨。"
+        }
+      ],
+      "checkedAt": "2026-11-16",
+      "operator": "名古屋市（鉄道・地下街・近隣ビル等と協議）",
+      "scale": "駅前広場のデザイン計画。確認資料では事業費・完成日を確定できず。",
+      "milestones": [
+        {
+          "date": "2026-03-30",
+          "label": "名古屋駅東側駅前広場デザイン計画を公表",
+          "kind": "actual"
+        },
+        {
+          "date": "未定",
+          "label": "関係者協議を経て実現へ",
+          "kind": "undated"
+        }
+      ],
+      "aliases": [
+        "名駅",
+        "駅前広場・歩行空間"
+      ],
+      "changes": [
+        {
+          "date": "2026-11-16",
+          "summary": "再開発ガイドに収録。資料の時点と予定・未定事項を分けて整理。"
+        }
+      ]
+    },
+    {
+      "id": "landmark-nagoya-sakae",
+      "title": "ザ・ランドマーク名古屋栄／HAERA",
+      "aliases": [
+        "栄広場",
+        "錦三丁目25番街区",
+        "コンラッド名古屋",
+        "栄",
+        "商業・ホテル・オフィス"
+      ],
+      "area": "栄・久屋大通",
+      "ward": "中区",
+      "category": "複合開発",
+      "status": "open",
+      "statusLabel": "開業済み",
+      "schedule": "商業・シネコンは2026年6月11日開業、コンラッド名古屋は7月31日開業。",
+      "summary": "栄駅に直結する複合ビル。地下2階～4階のHAERA、映画館、オフィス、ホテルが集まり、旧栄広場を含む街区が日常に使える場所へ変わった。",
+      "livingImpact": "買い物・映画・食事を栄駅とつないで使える。来訪前には施設ごとに異なる営業時間や出入口を確認すると、街歩きに組み込みやすい。",
+      "uncertainty": "商業施設の開業とホテル開業は別日。店舗数・営業時間・サービスは運営サイトの最新案内を優先する。",
+      "officialSources": [
+        {
+          "title": "三菱地所 ザ・ランドマーク名古屋栄 誕生",
+          "url": "https://www.mec.co.jp/news/detail/2026/03/17_mec260317_thelandmark-nagoyasakae",
+          "publishedAt": "2026-03-17",
+          "verifiedFact": "栄駅直結・地上41階の複合用途。商業シネコン6月11日開業予定の発表。"
+        },
+        {
+          "title": "HAERA 公式サイト",
+          "url": "https://haera.parco.jp/",
+          "publishedAt": null,
+          "verifiedFact": "11月の開催中企画、飲食店・営業時間・フロアガイドが公開され営業中であることを確認。"
+        },
+        {
+          "title": "三菱地所 コンラッド名古屋 本日開業",
+          "url": "https://www.mec.co.jp/news/detail/2026/07/31_mec260731_conradnagoya",
+          "publishedAt": "2026-07-31",
+          "verifiedFact": "ザ・ランドマーク名古屋栄のホテルは2026年7月31日に開業した。"
+        },
+        {
+          "title": "三菱地所 ゲートフロント久屋大通 名称決定",
+          "url": "https://www.mec.co.jp/news/detail/2026/08/27_mec260827_gatefront_hisaya-odori",
+          "publishedAt": "2026-08-27",
+          "verifiedFact": "本文でザ・ランドマーク名古屋栄を本年開業したと明記。"
+        },
+        {
+          "title": "J.フロント リテイリング 2026年10月パルコ店舗取扱高（開業後資料）",
+          "url": "https://www.j-front-retailing.com/_data_json/news/_upload/Flash_Report_of_Parco_Stores_2610_J.pdf",
+          "publishedAt": "2026-11-05",
+          "verifiedFact": "HAERAの2026年6月11日開業を、開業後の月次資料に記載。"
+        }
+      ],
+      "checkedAt": "2026-11-16",
+      "operator": "三菱地所・J.フロント都市開発・日本郵政不動産・明治安田生命・中日新聞社",
+      "scale": "地上41階・地下4階、高さ約211m、延床面積約109,700㎡。",
+      "milestones": [
+        {
+          "date": "2026-06-11",
+          "label": "商業施設HAERA・シネコン開業",
+          "kind": "actual"
+        },
+        {
+          "date": "2026-07-31",
+          "label": "コンラッド名古屋開業",
+          "kind": "actual"
+        }
+      ],
+      "changes": [
+        {
+          "date": "2026-11-16",
+          "summary": "再開発ガイドに収録。資料の時点と予定・未定事項を分けて整理。"
+        }
+      ]
+    },
+    {
+      "id": "chunichi-building",
+      "title": "中日ビル",
+      "area": "栄・久屋大通",
+      "ward": "中区",
+      "category": "複合開発",
+      "status": "open",
+      "statusLabel": "開業済み",
+      "schedule": "2024年4月23日全面開業。",
+      "summary": "栄交差点東側の建替え事業。店舗・飲食に加え、ホール、全国センター、ホテル、オフィスを備える複合ビルになった。",
+      "livingImpact": "買い物の目的がなくても7階屋上広場や全国センター広場を訪ねられる。再開発を完成年だけで終わらせず、街で過ごせる場所として確認したい。",
+      "uncertainty": "開業済みの施設。屋上広場は天候や催しで開放状況が変わるため、来訪時は公式案内を確認する。",
+      "officialSources": [
+        {
+          "title": "中日ビル 全面開業日、出店テナントを公開",
+          "url": "https://chunichi-building.jp/event-news/p1646/",
+          "publishedAt": "2024-01-11",
+          "verifiedFact": "2024年4月23日全面開業の発表と用途。"
+        },
+        {
+          "title": "中日ビル 施設紹介",
+          "url": "https://chunichi-building.jp/about/",
+          "publishedAt": null,
+          "verifiedFact": "ホール、全国センター広場、7階屋上広場などの施設構成。"
+        },
+        {
+          "title": "中日ビル 2026年クリスマス案内",
+          "url": "https://chunichi-building.jp/christmas2026/",
+          "publishedAt": null,
+          "verifiedFact": "2026年11月13日からの屋上広場企画などを掲載。営業中の現況確認。"
+        }
+      ],
+      "checkedAt": "2026-11-16",
+      "operator": "中部日本ビルディング・中日新聞社",
+      "scale": "地上33階。商業・ホール・ホテル・オフィス等の複合用途。",
+      "milestones": [
+        {
+          "date": "2024-04-23",
+          "label": "全面開業",
+          "kind": "actual"
+        }
+      ],
+      "aliases": [
+        "栄",
+        "商業・文化・ホテル"
+      ],
+      "changes": [
+        {
+          "date": "2026-11-16",
+          "summary": "再開発ガイドに収録。資料の時点と予定・未定事項を分けて整理。"
+        }
+      ]
+    },
+    {
+      "id": "gatefront-hisaya",
+      "title": "ゲートフロント久屋大通",
+      "aliases": [
+        "セントラルパークアネックス跡地",
+        "錦三丁目5番街区計画",
+        "栄・久屋大通",
+        "商業・オフィス"
+      ],
+      "area": "栄・久屋大通",
+      "ward": "中区",
+      "category": "複合開発",
+      "status": "construction",
+      "statusLabel": "工事中",
+      "schedule": "2026年12月竣工予定。店舗の開業日とは区別。",
+      "summary": "旧セントラルパークアネックス・桜錦ビルの跡地で進む複合開発。久屋大通駅直結で、アクタスとエアウィーヴの旗艦店などを計画している。",
+      "livingImpact": "地下から地上・公園へ移る動線と、久屋大通で買い物をする選択肢が変わる。雨の日の移動や周辺施設との回遊に関わる計画。",
+      "uncertainty": "最新の事業者発表では12月竣工予定。以前の2026年11月30日予定をそのまま使わない。竣工と一般客向け開業は別に確認する。",
+      "officialSources": [
+        {
+          "title": "三菱地所 ゲートフロント久屋大通 名称決定",
+          "url": "https://www.mec.co.jp/news/detail/2026/08/27_mec260827_gatefront_hisaya-odori",
+          "publishedAt": "2026-08-27",
+          "verifiedFact": "名称、2026年8月上棟・12月竣工予定、駅直結、商業入居予定を発表。"
+        },
+        {
+          "title": "三菱地所オフィス情報 ゲートフロント久屋大通",
+          "url": "https://office.mec.co.jp/search/detail/011814/",
+          "publishedAt": null,
+          "verifiedFact": "現行ページでも2026年12月竣工予定。"
+        }
+      ],
+      "checkedAt": "2026-11-16",
+      "operator": "三菱地所",
+      "scale": "地上13階・地下1階、高さ約60m、延床面積約24,123㎡。",
+      "milestones": [
+        {
+          "date": "2024-10-01",
+          "label": "新築工事着工",
+          "kind": "actual"
+        },
+        {
+          "date": "2026-08-27",
+          "label": "ゲートフロント久屋大通の名称と12月竣工予定を発表",
+          "kind": "actual"
+        },
+        {
+          "date": "2026-12",
+          "label": "建物竣工予定",
+          "kind": "planned"
+        },
+        {
+          "date": "未定",
+          "label": "店舗ごとの開業日を確認",
+          "kind": "undated"
+        }
+      ],
+      "changes": [
+        {
+          "date": "2026-11-16",
+          "summary": "再開発ガイドに収録。資料の時点と予定・未定事項を分けて整理。"
+        }
+      ]
+    },
+    {
+      "id": "old-education-center",
+      "title": "旧教育館跡地／SLOW ART CENTER NAGOYA",
+      "area": "栄・久屋大通",
+      "ward": "中区",
+      "category": "文化・公共施設",
+      "status": "open",
+      "statusLabel": "暫定利用中・次期活用検討",
+      "schedule": "2024年3月31日暫定施設開業。2026年に暫定活用後の事業に向けた対話型調査を募集。",
+      "summary": "錦三丁目16番街区の市有地で、SLOW ART CENTER NAGOYAを暫定運営。本格整備や次の活用に向け、市が民間事業者との対話を進める段階にある。",
+      "livingImpact": "将来の建物を待つ間にも使える文化・交流拠点。完成予想だけでなく、今使える機能と暫定利用の期限を切り分けて見たい。",
+      "uncertainty": "次期開発の建物・用途・事業者・完成日は今回の確認資料では確定していない。調査日程の終了だけで事業決定済みと扱わない。",
+      "officialSources": [
+        {
+          "title": "名古屋市 旧教育館跡地暫定活用事業の開業",
+          "url": "https://www.city.nagoya.jp/shisei/keikaku/1009818/1009881/1034206/1009907.html",
+          "publishedAt": "2026-04-13",
+          "verifiedFact": "施設の開業日は令和6年3月31日。ページ更新日は開業日ではない。"
+        },
+        {
+          "title": "名古屋市 旧教育館跡地活用に関するサウンディング調査",
+          "url": "https://www.city.nagoya.jp/houdou/3003942/3003946/3004896.html",
+          "publishedAt": "2026-07-09",
+          "verifiedFact": "現在の暫定活用後に向けた調査。個別対話の日程は2026年8月17日〜9月3日。"
+        },
+        {
+          "title": "SLOW ART CENTER NAGOYA 運営体制のお知らせ",
+          "url": "https://slowartcenter.jp/news/%E3%83%97%E3%83%AC%E3%82%B9%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E3%81%AE%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B/",
+          "publishedAt": "2026-04",
+          "verifiedFact": "2026年4月1日から新運営体制で活動を拡充。2024年3月開業の暫定施設と明記。"
+        }
+      ],
+      "checkedAt": "2026-11-16",
+      "operator": "土地所有：名古屋市／暫定活用事業者：三菱地所",
+      "scale": "錦三丁目16番街区の旧教育館跡地。次期開発の建物規模は未確定。",
+      "milestones": [
+        {
+          "date": "2024-03-31",
+          "label": "SLOW ART CENTER NAGOYA開業",
+          "kind": "actual"
+        },
+        {
+          "date": "2026-04-01",
+          "label": "新たな運営体制に移行",
+          "kind": "actual"
+        },
+        {
+          "date": "2026-07-09",
+          "label": "暫定活用後を考えるサウンディング調査を募集",
+          "kind": "actual"
+        },
+        {
+          "date": "未定",
+          "label": "次期活用・本格整備の内容",
+          "kind": "undated"
+        }
+      ],
+      "aliases": [
+        "栄・久屋大通",
+        "暫定活用・文化交流"
+      ],
+      "changes": [
+        {
+          "date": "2026-11-16",
+          "summary": "再開発ガイドに収録。資料の時点と予定・未定事項を分けて整理。"
+        }
+      ]
+    },
+    {
+      "id": "hisaya-south",
+      "title": "久屋大通公園・南エリア再整備",
+      "area": "栄・久屋大通",
+      "ward": "中区",
+      "category": "公園・水辺",
+      "status": "planning",
+      "statusLabel": "構想・事業化検討",
+      "schedule": "2025年3月構想策定。2026年も検討継続。着工・完成時期は未公表。",
+      "summary": "南エリアに必要な機能と整備・管理運営の考え方をまとめた構想を策定。民間事業者との対話結果を公表し、デザイン検討も進める。",
+      "livingImpact": "イベント空間と日常の憩い、歩きやすさをどう両立するかが焦点。北・テレビ塔エリアの開業済み施設とは分けて、工事時期と公園の利用条件を追いたい。",
+      "uncertainty": "民間へのサウンディングは事業者決定ではない。2026年10月の部会は非公開で、詳細な設計が確定したとは扱わない。",
+      "operator": "名古屋市（事業化検討）",
+      "scale": "南エリアの公園再整備。確定施設規模・事業費はここでは未掲載。",
+      "milestones": [
+        {
+          "date": "2025-03",
+          "label": "再整備構想策定",
+          "kind": "actual"
+        },
+        {
+          "date": "2026-03-31",
+          "label": "サウンディング結果掲載ページ更新",
+          "kind": "actual"
+        },
+        {
+          "date": "2026-10",
+          "label": "デザイン検討部会で意見交換",
+          "kind": "actual"
+        },
+        {
+          "date": "時期未定",
+          "label": "事業者公募・着工・完成",
+          "kind": "undated"
+        }
+      ],
+      "officialSources": [
+        {
+          "title": "名古屋市｜久屋大通（南エリア）再整備構想の策定",
+          "url": "https://www.city.nagoya.jp/shisei/keikaku/1009818/1009881/1034204/1009894.html",
+          "publishedAt": "2025-10-17",
+          "verifiedFact": "市民意見を踏まえて南エリア再整備構想を策定。整備・管理運営の基本的な考え方を示す。"
+        },
+        {
+          "title": "名古屋市｜南エリア再整備の公募型サウンディング調査",
+          "url": "https://www.city.nagoya.jp/shisei/keikaku/1009818/1009881/1034204/1032459.html",
+          "publishedAt": "2026-03-31",
+          "verifiedFact": "2025年3月構想策定。民間事業者公募を想定した市場調査を実施し結果掲載。"
+        },
+        {
+          "title": "名古屋市｜第2回デザイン検討部会",
+          "url": "https://www.city.nagoya.jp/shisei/jouhou/1028672/1028675/1028758/1037234/1048055/1055213.html",
+          "publishedAt": "2026-11-05",
+          "verifiedFact": "2026年10月16日・20日に南エリア再整備を非公開で検討した開催結果。"
+        }
+      ],
+      "checkedAt": "2026-11-16",
+      "aliases": [
+        "栄・久屋大通",
+        "水辺・公園"
+      ],
+      "changes": [
+        {
+          "date": "2026-11-16",
+          "summary": "再開発ガイドに収録。資料の時点と予定・未定事項を分けて整理。"
+        }
+      ]
+    },
+    {
+      "id": "nishiki-two-seven",
+      "title": "錦二丁目7番地区市街地再開発",
+      "area": "伏見・錦",
+      "ward": "中区",
+      "category": "複合開発",
+      "status": "open",
+      "statusLabel": "工事完了",
+      "schedule": "2022年3月に工事完了公告。",
+      "summary": "錦二丁目で進められた住宅・商業・駐車場の再開発。名古屋市は工事完了までの経過を公開している。",
+      "livingImpact": "都心の働く街に住まいと日常利用を重ねる事例。今後の計画と混ぜず、完成後の街の使われ方を考える比較対象にする。",
+      "uncertainty": "工事完了公告は市の記録で確認。現在の個別店舗の営業や入居募集の状況までは確認していない。",
+      "officialSources": [
+        {
+          "title": "名古屋市 錦二丁目7番地区市街地再開発事業",
+          "url": "https://www.city.nagoya.jp/shisei/keikaku/1009818/1009928/1009952/1009953/1009954/1034881/1009961.html",
+          "publishedAt": "2025-10-17",
+          "verifiedFact": "住宅・商業・駐車場、地上30階、2022年3月工事完了公告。"
+        },
+        {
+          "title": "愛知県 市街地再開発事業",
+          "url": "https://www.pref.aichi.jp/soshiki/jutakukeikaku/000003096700.html",
+          "publishedAt": null,
+          "verifiedFact": "令和8年6月1日現在の完了地区として錦二丁目7番を掲載。"
+        }
+      ],
+      "checkedAt": "2026-11-16",
+      "operator": "錦二丁目7番地区市街地再開発組合",
+      "scale": "地区面積約0.7ha、地上30階・地下1階、延床面積約49,900㎡。",
+      "milestones": [
+        {
+          "date": "2017-02",
+          "label": "都市計画決定",
+          "kind": "actual"
+        },
+        {
+          "date": "2019-03",
+          "label": "建築工事着手",
+          "kind": "actual"
+        },
+        {
+          "date": "2022-03",
+          "label": "工事完了公告",
+          "kind": "actual"
+        }
+      ],
+      "aliases": [
+        "伏見・錦",
+        "住宅・商業"
+      ],
+      "changes": [
+        {
+          "date": "2026-11-16",
+          "summary": "再開発ガイドに収録。資料の時点と予定・未定事項を分けて整理。"
+        }
+      ]
+    },
+    {
+      "id": "fushimi-k-frontier",
+      "title": "名古屋伏見Kフロンティア",
+      "area": "伏見・錦",
+      "ward": "中区",
+      "category": "仕事・交流",
+      "status": "open",
+      "statusLabel": "竣工済み",
+      "schedule": "2025年10月15日竣工。",
+      "summary": "錦二丁目15番地のオフィス建替え。伏見駅から近く、伏見地下街から敷地内へ直接つながる連絡通路を備える。",
+      "livingImpact": "都心で働く場所の更新に加え、地下街と建物をつなぐ移動の変化がポイント。来訪時は業務施設の利用範囲や入館案内を確認する。",
+      "uncertainty": "建物の竣工を確認。テナントの入居状況や館内を一般利用できる範囲は別の確認が必要。",
+      "officialSources": [
+        {
+          "title": "鹿島 名古屋伏見Kフロンティアが竣工",
+          "url": "https://www.kajima.co.jp/news/press/202511/4a1-j.htm",
+          "publishedAt": "2025-11-04",
+          "verifiedFact": "2025年10月15日竣工、伏見地下街から敷地内に直接通じる連絡通路。"
+        }
+      ],
+      "checkedAt": "2026-11-16",
+      "operator": "鹿島",
+      "scale": "地上13階・地下1階、延床面積25,810.64㎡。",
+      "milestones": [
+        {
+          "date": "2025-10-15",
+          "label": "建物竣工",
+          "kind": "actual"
+        },
+        {
+          "date": "2025-11-04",
+          "label": "事業者が竣工を発表",
+          "kind": "actual"
+        }
+      ],
+      "aliases": [
+        "伏見・錦",
+        "オフィス・地下接続"
+      ],
+      "changes": [
+        {
+          "date": "2026-11-16",
+          "summary": "再開発ガイドに収録。資料の時点と予定・未定事項を分けて整理。"
+        }
+      ]
+    },
+    {
+      "id": "asunal-kanayama",
+      "title": "アスナル金山エリア再整備",
+      "area": "金山・熱田",
+      "ward": "中区",
+      "category": "複合開発",
+      "status": "review",
+      "statusLabel": "再整備を検討中",
+      "schedule": "アスナル金山は2036年3月末まで営業継続予定。再整備の開業時期は未確定。",
+      "summary": "工事費高騰などを受けて検討・調整を継続。従来の2027年10月末という営業期限を2035年度末に延ばした。",
+      "livingImpact": "買い物や飲食、駅前イベントの場を維持しながら再整備を検討する。市民会館の建て替えとは工程が異なるため、閉館・閉鎖情報を分けて確認したい。",
+      "uncertainty": "2036年は新施設の開業年ではなく、現アスナルの営業継続期限。着工・完成日を読み替えない。",
+      "officialSources": [
+        {
+          "title": "名古屋市｜金山地区のまちづくり",
+          "url": "https://www.city.nagoya.jp/shisei/keikaku/1009818/1009928/1009929/1009930/1034209.html",
+          "publishedAt": "2026-10-26",
+          "verifiedFact": "2026年3月の営業延長説明に、2027年10月末から2035年度末への延長、工事費高騰による検討継続を明記。"
+        },
+        {
+          "title": "アスナル金山｜営業継続のお知らせ",
+          "url": "https://www.asunal.jp/news/",
+          "publishedAt": "2026-09-10",
+          "verifiedFact": "施設運営者が令和17年度末まで営業継続予定と案内。"
+        }
+      ],
+      "checkedAt": "2026-11-16",
+      "operator": "名古屋市（再整備検討）",
+      "scale": "施設規模は再整備の検討中。現時点の確定値として掲載しない。",
+      "milestones": [
+        {
+          "date": "2025-02",
+          "label": "まちづくり計画・再整備実施方針策定",
+          "kind": "actual"
+        },
+        {
+          "date": "2026-03",
+          "label": "現施設の営業期間延長を公表",
+          "kind": "actual"
+        },
+        {
+          "date": "2036-03",
+          "label": "現アスナル営業継続期限（新施設開業日ではない）",
+          "kind": "planned"
+        }
+      ],
+      "aliases": [
+        "金山",
+        "駅前・複合開発"
+      ],
+      "changes": [
+        {
+          "date": "2026-11-16",
+          "summary": "再開発ガイドに収録。資料の時点と予定・未定事項を分けて整理。"
+        }
+      ]
+    },
+    {
+      "id": "kanayama-new-theater",
+      "title": "金山・新たな劇場整備（市民会館建て替え）",
+      "area": "金山・熱田",
+      "ward": "中区",
+      "category": "文化・公共施設",
+      "status": "planning",
+      "statusLabel": "実施方針を公表",
+      "schedule": "現市民会館は2028年3月末閉館予定。実施方針は2035年10月1日を新劇場開館の前提とする。",
+      "summary": "2026年10月1日にPFI実施方針と要求水準書案を公表。劇場だけでなく古沢公園、駐車場、オープンスペースも対象に含む。",
+      "livingImpact": "観劇・演奏会の会場更新と、閉館期間の文化活動の受け皿が論点。アスナルの営業継続と合わせて、駅北側の使い方を追う必要がある。",
+      "uncertainty": "開館日は実施方針上の前提で、事業者選定・契約前。供用開始は2035年10月1日以前での事業者提案とされ、確定開業日として扱わない。",
+      "officialSources": [
+        {
+          "title": "名古屋市｜新たな劇場整備運営事業に係るPFI手続き",
+          "url": "https://www.city.nagoya.jp/kankou/bunka/1034457/1017117/1053627.html",
+          "publishedAt": "2026-11-13",
+          "verifiedFact": "2026年10月1日に実施方針等公表。ページ更新日は11月13日。"
+        },
+        {
+          "title": "名古屋市｜新たな劇場整備運営事業 実施方針",
+          "url": "https://www.city.nagoya.jp/_res/projects/default_project/_page_/001/053/627/jisshihoushin_ver.0925.pdf",
+          "publishedAt": "2026-10-01",
+          "verifiedFact": "本文5〜6ページ：2035年10月1日開館を前提に、同日以前で事業者提案。本文8ページ：2027年4月入札公告、2028年3月事業契約の予定。"
+        },
+        {
+          "title": "Niterra日本特殊陶業市民会館｜閉館について",
+          "url": "https://nagoya-shimin.hall-info.jp/kaikan/index.html",
+          "publishedAt": null,
+          "verifiedFact": "現市民会館は2028年3月末に閉館予定と運営者が案内。"
+        }
+      ],
+      "checkedAt": "2026-11-16",
+      "operator": "名古屋市（PFI事業者は選定前）",
+      "scale": "劇場、古沢公園、市営古沢公園駐車場、オープンスペースを含む。",
+      "milestones": [
+        {
+          "date": "2026-10-01",
+          "label": "PFI実施方針・要求水準書案公表",
+          "kind": "actual"
+        },
+        {
+          "date": "2027-04",
+          "label": "事業者選定の入札公告予定",
+          "kind": "planned"
+        },
+        {
+          "date": "2028-03",
+          "label": "現市民会館閉館・事業契約予定",
+          "kind": "planned"
+        },
+        {
+          "date": "2035-10-01",
+          "label": "新劇場開館の実施方針上の前提日",
+          "kind": "planned"
+        }
+      ],
+      "aliases": [
+        "金山",
+        "文化・公共施設"
+      ],
+      "changes": [
+        {
+          "date": "2026-11-16",
+          "summary": "再開発ガイドに収録。資料の時点と予定・未定事項を分けて整理。"
+        }
+      ]
+    },
+    {
+      "id": "atsuta-mtg",
+      "title": "MTG熱田本社・研究開発センター",
+      "area": "金山・熱田",
+      "ward": "熱田区",
+      "category": "仕事・交流",
+      "status": "construction",
+      "statusLabel": "着工済み・竣工予定",
+      "schedule": "2025年3月着工、2027年1月竣工予定。",
+      "summary": "MTGが熱田区三本松町に本社・研究開発拠点を整備。計画にはオフィスのほか、カフェ、ミュージアム、屋外広場などを含む。",
+      "livingImpact": "企業の拠点移転に加え、地域の人が利用する飲食・交流空間ができる計画。周辺の劇場や神宮前駅とどう歩いて結ばれるかが確認点。",
+      "uncertainty": "2027年1月は竣工予定で、一般向け施設の営業開始日ではない。施設構成は計画段階で変更の可能性がある。",
+      "officialSources": [
+        {
+          "title": "MTG｜新本社・研究開発センター建設のお知らせ",
+          "url": "https://www.mtg.gr.jp/news/detail/2025/07/article_2379.html",
+          "publishedAt": "2026-02-25",
+          "verifiedFact": "2025年7月14日公表、2026年2月25日修正。着工2025年3月1日、竣工2027年1月予定、施設構成を掲載。鉄骨造6階、延床面積14,905.75㎡。"
+        }
+      ],
+      "checkedAt": "2026-11-16",
+      "operator": "株式会社MTG",
+      "scale": "鉄骨造6階建、延床面積14,905.75㎡。",
+      "milestones": [
+        {
+          "date": "2025-03-01",
+          "label": "着工",
+          "kind": "actual"
+        },
+        {
+          "date": "2026-02-25",
+          "label": "建設発表の一部記載を修正",
+          "kind": "actual"
+        },
+        {
+          "date": "2027-01",
+          "label": "竣工予定（一般施設営業日とは別）",
+          "kind": "planned"
+        }
+      ],
+      "aliases": [
+        "熱田・神宮前",
+        "仕事・交流拠点"
+      ],
+      "changes": [
+        {
+          "date": "2026-11-16",
+          "summary": "再開発ガイドに収録。資料の時点と予定・未定事項を分けて整理。"
+        }
+      ]
+    },
+    {
+      "id": "atsuta-shiki-theatre",
+      "title": "MTG名古屋四季劇場［熱田］",
+      "area": "金山・熱田",
+      "ward": "熱田区",
+      "category": "文化・公共施設",
+      "status": "open",
+      "statusLabel": "移転開場済み",
+      "schedule": "2026年7月5日、熱田で開場。",
+      "summary": "劇団四季の名古屋拠点が名駅南から熱田へ移転。新劇場で『オペラ座の怪人』が開幕したことを劇団が当日発表している。",
+      "livingImpact": "観劇の目的地が名駅南から神宮前周辺へ移った。出かける際は旧劇場と取り違えず、熱田の現劇場へのアクセスを確認したい。",
+      "uncertainty": "劇場の開場済みと、周辺の熱田外苑関連事業すべての完成は別。公演日程・料金は公式の最新案内を参照。",
+      "officialSources": [
+        {
+          "title": "劇団四季｜新劇場開場・オペラ座の怪人名古屋公演開幕",
+          "url": "https://www.shiki.jp/navi/news/renewinfo/037825.html",
+          "publishedAt": "2026-07-05",
+          "verifiedFact": "熱田の新劇場が2026年7月5日に開場、名駅南から移転したことを運営者が報告。"
+        }
+      ],
+      "checkedAt": "2026-11-16",
+      "operator": "劇団四季",
+      "scale": "専用劇場。客席数は参照した開場報告に記載なし。",
+      "milestones": [
+        {
+          "date": "2026-07-05",
+          "label": "熱田の新劇場開場",
+          "kind": "actual"
+        }
+      ],
+      "aliases": [
+        "熱田・神宮前",
+        "文化・公共施設"
+      ],
+      "changes": [
+        {
+          "date": "2026-11-16",
+          "summary": "再開発ガイドに収録。資料の時点と予定・未定事項を分けて整理。"
+        }
+      ]
+    },
+    {
+      "id": "ig-arena",
+      "title": "IGアリーナ",
+      "area": "名城公園",
+      "ward": "北区",
+      "category": "スポーツ",
+      "status": "open",
+      "statusLabel": "開業済み",
+      "schedule": "2025年7月13日グランドオープン。",
+      "summary": "名城公園に最大収容人数1万7千人のスポーツ・エンターテインメント施設が開業。運営者が開業当日に実施を発表している。",
+      "livingImpact": "大型イベントの目的地が増えた。暮らしの視点では、開催日の駅・歩行経路の混雑と、公園の日常利用の両立を見ていきたい。",
+      "uncertainty": "収容人数は催事の構成で変わる。周辺への経済効果や混雑改善を開業だけで実現済みとは評価しない。",
+      "officialSources": [
+        {
+          "title": "IGアリーナ｜本日グランドオープン",
+          "url": "https://www.ig-arena.jp/news/2023/",
+          "publishedAt": "2025-07-13",
+          "verifiedFact": "2025年7月13日開業、最大収容人数1万7千人。"
+        }
+      ],
+      "checkedAt": "2026-11-16",
+      "operator": "株式会社愛知国際アリーナ",
+      "scale": "最大収容人数17,000人。催事構成で変わる。",
+      "milestones": [
+        {
+          "date": "2025-07-13",
+          "label": "グランドオープン",
+          "kind": "actual"
+        }
+      ],
+      "aliases": [
+        "名城公園",
+        "スポーツ・文化"
+      ],
+      "changes": [
+        {
+          "date": "2026-11-16",
+          "summary": "再開発ガイドに収録。資料の時点と予定・未定事項を分けて整理。"
+        }
+      ]
+    },
+    {
+      "id": "mizuho-stadium",
+      "title": "パロマ瑞穂スタジアム・瑞穂公園",
+      "area": "瑞穂・桜山",
+      "ward": "瑞穂区",
+      "category": "スポーツ",
+      "status": "open",
+      "statusLabel": "供用開始済み",
+      "schedule": "2026年4月開業。名古屋市の供用開始指定日は4月22日。",
+      "summary": "陸上競技場の改築により約3万席の屋根付きスタジアムへ。市の会場案内と大会組織委員会が2026年4月の開業を確認している。",
+      "livingImpact": "大規模イベントのない日には3階コンコースを開放する設計。公園とつながる回遊路が、観戦以外の散歩やランニングの選択肢になる。",
+      "uncertainty": "日々の開放時間や大会後の利用制限は施設の運用情報で別途確認。施設完成と常時利用可能は同じではない。",
+      "officialSources": [
+        {
+          "title": "名古屋市｜パロマ瑞穂スタジアム供用開始について",
+          "url": "https://www.city.nagoya.jp/houdou/pressr7/3002887/3003259.html",
+          "publishedAt": "2025-12-08",
+          "verifiedFact": "2026年4月22日供用開始、約3万席、イベント等のない時のコンコース市民開放を告知。車椅子席は300席。"
+        },
+        {
+          "title": "名古屋市スポーツ観光｜瑞穂公園陸上競技場エリア",
+          "url": "https://nagos-sports.city.nagoya.jp/tourism/place/detail01/",
+          "publishedAt": null,
+          "verifiedFact": "2026年4月に開業したと記述。3階コンコースとデッキによる約1kmの回遊路を紹介。"
+        },
+        {
+          "title": "愛知・名古屋2026｜名古屋市瑞穂公園陸上競技場",
+          "url": "https://www.aichi-nagoya2026.org/ja/venue/nagoya-city-mizuho-park-athletic-stadium/",
+          "publishedAt": null,
+          "verifiedFact": "2026年4月にオープンしたと大会主催者が記載。"
+        }
+      ],
+      "checkedAt": "2026-11-16",
+      "operator": "名古屋市（整備主体）",
+      "scale": "観客席約30,000席、車椅子席300席。",
+      "milestones": [
+        {
+          "date": "2025-12-08",
+          "label": "供用開始日を発表",
+          "kind": "actual"
+        },
+        {
+          "date": "2026-04",
+          "label": "開業（市・大会主催者が事後確認）",
+          "kind": "actual"
+        }
+      ],
+      "aliases": [
+        "瑞穂",
+        "スポーツ・公園"
+      ],
+      "changes": [
+        {
+          "date": "2026-11-16",
+          "summary": "再開発ガイドに収録。資料の時点と予定・未定事項を分けて整理。"
+        }
+      ]
+    },
+    {
+      "id": "nagoya-city-museum",
+      "title": "名古屋市博物館リニューアル",
+      "area": "瑞穂・桜山",
+      "ward": "瑞穂区",
+      "category": "文化・公共施設",
+      "status": "construction",
+      "statusLabel": "プレオープン終了・改修休館中",
+      "schedule": "2026年11月2日から再休館。2028年4月15日グランドオープン予定。",
+      "summary": "2026年9月5日〜11月1日の期間限定プレオープンを実施し、再び改修休館に入った。本館・外構の更新と常設展示の更新を進める。",
+      "livingImpact": "2026年秋の開館告知を見て現在も入館できると誤解しやすい。来館計画では休館中という現状と、次の開館予定を分けて確認する必要がある。",
+      "uncertainty": "2028年4月15日は予定。2026年のプレオープンは期間限定であり、全面再開済みではない。",
+      "operator": "名古屋市博物館",
+      "scale": "本館・外構リニューアル、常設展示更新。",
+      "milestones": [
+        {
+          "date": "2023-10-01",
+          "label": "改修のため長期休館開始",
+          "kind": "actual"
+        },
+        {
+          "date": "2026-09-05",
+          "label": "期間限定プレオープン開始",
+          "kind": "actual"
+        },
+        {
+          "date": "2026-11-01",
+          "label": "プレオープン会期終了",
+          "kind": "actual"
+        },
+        {
+          "date": "2026-11-02",
+          "label": "再度改修休館",
+          "kind": "actual"
+        },
+        {
+          "date": "2028-04-15",
+          "label": "グランドオープン予定",
+          "kind": "planned"
+        }
+      ],
+      "officialSources": [
+        {
+          "title": "名古屋市博物館｜概要・現在の休館案内",
+          "url": "https://www.museum.city.nagoya.jp/self_introduction/summary/index.html",
+          "publishedAt": null,
+          "verifiedFact": "プレオープン実施・会期終了、再度長期休館中、2028年4月15日グランドオープン予定。"
+        },
+        {
+          "title": "名古屋市｜2026年博物館プレオープン発表",
+          "url": "https://www.city.nagoya.jp/houdou/3003942/3003943/3004423.html",
+          "publishedAt": "2026-04-20",
+          "verifiedFact": "9月5日〜11月1日の限定開館と11月2日からの工事休館を告知。"
+        }
+      ],
+      "checkedAt": "2026-11-16",
+      "aliases": [
+        "桜山・瑞穂",
+        "文化・公共施設"
+      ],
+      "changes": [
+        {
+          "date": "2026-11-16",
+          "summary": "再開発ガイドに収録。資料の時点と予定・未定事項を分けて整理。"
+        }
+      ]
+    },
+    {
+      "id": "nagoya-racecourse-site",
+      "title": "名古屋競馬場跡地のまちづくり",
+      "area": "港・中川運河",
+      "ward": "港区",
+      "category": "複合開発",
+      "status": "planning",
+      "statusLabel": "土地売買契約を締結",
+      "schedule": "2027年5月土地引き渡し、2029年度以降順次供用開始予定。",
+      "summary": "港区の旧競馬場跡地について、愛知県・名古屋市と中部電力コンソーシアム各社の土地売買契約が本契約となった。",
+      "livingImpact": "大会後の跡地が、住まい・商業・公共空間を組み合わせる街へどう変わるかが焦点。日常の買い物先や歩行動線は、個別施設の計画と供用時期を分けて確認したい。",
+      "uncertainty": "2029年度は順次供用開始の予定で、街区全体の完成時期ではない。個別施設の名称・入居者・開業日を推測しない。",
+      "officialSources": [
+        {
+          "title": "名古屋市｜名古屋競馬場跡地の売却について",
+          "url": "https://www.city.nagoya.jp/shisei/keikaku/1009818/1009823/1045123.html",
+          "publishedAt": "2026-02-12",
+          "verifiedFact": "停止条件付き土地売買契約が議会議決を経て本契約となった。予定は2027年5月引渡し、2029年度以降順次供用開始。"
+        },
+        {
+          "title": "中部電力グループレポート2025",
+          "url": "https://www.chuden.co.jp/resource/csr/csr_report/chudengr2025_all.pdf",
+          "publishedAt": null,
+          "verifiedFact": "71ページに名古屋競馬場跡地の複合的な街づくりと2029年頃のまちびらき予定を掲載。日付は新しい市資料を優先する。"
+        }
+      ],
+      "checkedAt": "2026-11-16",
+      "operator": "愛知県・名古屋市／中部電力コンソーシアム",
+      "scale": "旧競馬場跡地の複合開発。個別施設の確定規模はここでは未掲載。",
+      "milestones": [
+        {
+          "date": "2025-10",
+          "label": "停止条件付き土地売買契約締結",
+          "kind": "actual"
+        },
+        {
+          "date": "2026-02-12",
+          "label": "議決後の本契約成立を市が公表",
+          "kind": "actual"
+        },
+        {
+          "date": "2027-05",
+          "label": "土地引き渡し予定",
+          "kind": "planned"
+        },
+        {
+          "date": "2029年度以降",
+          "label": "順次供用開始予定",
+          "kind": "planned"
+        }
+      ],
+      "aliases": [
+        "港北・競馬場跡地",
+        "住宅・複合開発"
+      ],
+      "changes": [
+        {
+          "date": "2026-11-16",
+          "summary": "再開発ガイドに収録。資料の時点と予定・未定事項を分けて整理。"
+        }
+      ]
+    },
+    {
+      "id": "minato-aquls-arena",
+      "title": "みなとアクルス・（仮称）名古屋アリーナ",
+      "area": "港・中川運河",
+      "ward": "港区",
+      "category": "スポーツ",
+      "status": "construction",
+      "statusLabel": "着工済み・開業予定",
+      "schedule": "2025年8月27日着工。2027年秋竣工、2028年初頭開業予定。",
+      "summary": "三井不動産・豊田通商・KDDIが、約1万人規模の多目的アリーナを整備。2026年10月の豊田通商発表でも開業予定を維持している。",
+      "livingImpact": "既存の商業・スポーツ施設に、大型観戦・音楽公演の拠点が加わる計画。買い物とイベントを組み合わせる動線、駅からのアクセスが暮らしの確認点になる。",
+      "uncertainty": "2027年秋は竣工予定、2028年初頭が開業予定。かつての2026年開業構想と混同しない。",
+      "officialSources": [
+        {
+          "title": "三井不動産｜（仮称）名古屋アリーナ着工",
+          "url": "https://www.mitsuifudosan.co.jp/corporate/news/2025/0827/",
+          "publishedAt": "2025-08-27",
+          "verifiedFact": "着工日、約1万人規模、2027年秋竣工・2028年初頭開業予定、港区金川町の所在地。"
+        },
+        {
+          "title": "豊田通商｜FE名古屋2026-27シーズンホーム開幕戦",
+          "url": "https://www.toyota-tsusho.com/press/detail/261009_006931.html",
+          "publishedAt": "2026-10-09",
+          "verifiedFact": "2027年秋竣工・2028年初頭開業予定を再掲。"
+        }
+      ],
+      "checkedAt": "2026-11-16",
+      "operator": "三井不動産・豊田通商・KDDI",
+      "scale": "収容客数約10,000人、延床面積約27,500㎡。",
+      "milestones": [
+        {
+          "date": "2025-08-27",
+          "label": "着工",
+          "kind": "actual"
+        },
+        {
+          "date": "2026-10-09",
+          "label": "事業者が竣工・開業予定を再掲",
+          "kind": "actual"
+        },
+        {
+          "date": "2027年秋",
+          "label": "竣工予定",
+          "kind": "planned"
+        },
+        {
+          "date": "2028年初頭",
+          "label": "開業予定",
+          "kind": "planned"
+        }
+      ],
+      "aliases": [
+        "みなとアクルス",
+        "スポーツ・複合開発"
+      ],
+      "changes": [
+        {
+          "date": "2026-11-16",
+          "summary": "再開発ガイドに収録。資料の時点と予定・未定事項を分けて整理。"
+        }
+      ]
+    },
+    {
+      "id": "nakagawa-canal",
+      "title": "中川運河再生・NAKAGAWA CANAL DOORS",
+      "area": "港・中川運河",
+      "ward": "中川区・中村区",
+      "category": "公園・水辺",
+      "status": "open",
+      "statusLabel": "一部開業・段階整備",
+      "schedule": "CANAL DOORSは2026年6月18日開業。にぎわいゾーン第2期の計画期間は2026〜2030年度。",
+      "summary": "運河の玄関口にホテル・飲食・交流・スポーツの複合施設が開業。市は水辺の回遊性を高める第2期の都市再生整備計画を進める。",
+      "livingImpact": "水辺で過ごす場所と、ささしまから歩く行き先が増えた。点在する施設をつなぐ道や緑地がどこまで整うかを、個別施設の開業と合わせて追う。",
+      "uncertainty": "第2期の期間終了は全運河の再生完了を意味しない。利用者数や催事数の数値目標は、達成済みの実績ではない。",
+      "officialSources": [
+        {
+          "title": "名古屋市｜中川運河にぎわいゾーン地区（第2期）",
+          "url": "https://www.city.nagoya.jp/shisei/keikaku/1009818/1009928/1009940/1009945/1048856.html",
+          "publishedAt": "2026-04-28",
+          "verifiedFact": "計画期間2026〜2030年度。水辺の回遊性確保とにぎわい創出を整備方針に掲げる。対象面積149ha。"
+        },
+        {
+          "title": "名古屋観光コンベンションビューロー｜NAKAGAWA CANAL DOORS",
+          "url": "https://www.nagoya-info.jp/spot/detail/283/",
+          "publishedAt": null,
+          "verifiedFact": "2026年6月18日開業済みと紹介。住所は中川区運河町2-1。"
+        },
+        {
+          "title": "NAKAGAWA CANAL DOORS公式",
+          "url": "https://nakagawa-canal-doors.com/",
+          "publishedAt": null,
+          "verifiedFact": "施設構成と営業案内、2026年9月・10月のお知らせを掲載。"
+        },
+        {
+          "title": "名古屋市 中川運河にぎわいゾーン地区（第2期）計画概要",
+          "url": "https://www.city.nagoya.jp/_res/projects/default_project/_page_/001/048/856/nakagawanigiwai2-1_.pdf",
+          "publishedAt": "2026-04",
+          "verifiedFact": "計画区域は中川区・中村区の一部。149haは計画区域の面積で、CANAL DOORS単独の敷地ではない。"
+        }
+      ],
+      "checkedAt": "2026-11-16",
+      "operator": "名古屋市（運河再生）／各施設運営者",
+      "scale": "第2期都市再生整備計画の対象面積149ha。複合施設単独の敷地面積ではない。",
+      "milestones": [
+        {
+          "date": "2026-04-28",
+          "label": "にぎわいゾーン第2期計画概要公表",
+          "kind": "actual"
+        },
+        {
+          "date": "2026-06-18",
+          "label": "NAKAGAWA CANAL DOORS開業",
+          "kind": "actual"
+        },
+        {
+          "date": "2030年度",
+          "label": "第2期計画期間の最終年度",
+          "kind": "planned"
+        }
+      ],
+      "aliases": [
+        "ささしま・中川運河",
+        "水辺・公園"
+      ],
+      "changes": [
+        {
+          "date": "2026-11-16",
+          "summary": "再開発ガイドに収録。資料の時点と予定・未定事項を分けて整理。"
+        }
+      ]
+    },
+    {
+      "id": "station-ai",
+      "title": "STATION Ai",
+      "area": "鶴舞",
+      "ward": "昭和区",
+      "category": "仕事・交流",
+      "status": "open",
+      "statusLabel": "開業済み",
+      "schedule": "2024年10月1日会員向け開業、10月31日グランドオープン。一般利用は11月1日から。",
+      "summary": "鶴舞公園南側のオープンイノベーション拠点。企業向けオフィスと支援機能に加え、一般利用できる飲食店やホテル、イベント空間を備える。",
+      "livingImpact": "起業家だけでなく、食事・展示・公開イベントを通じて地域の人も接点を持てる施設。一般利用エリアと会員専用エリアを分けて探すと使いやすい。",
+      "uncertainty": "開業日とグランドオープン日、一般利用開始日は異なる。企業参加数は変動するため固定値として掲載しない。",
+      "officialSources": [
+        {
+          "title": "ソフトバンク｜STATION Aiが2024年10月1日に開業",
+          "url": "https://www.softbank.jp/corp/news/press/sbkk/2024/20241001_01/",
+          "publishedAt": "2024-10-01",
+          "verifiedFact": "10月1日開業、会員向け利用開始。一般利用11月1日、グランドオープン10月31日と説明。"
+        },
+        {
+          "title": "STATION Ai｜オープニングセレモニー開催レポート",
+          "url": "https://stationai.co.jp/magazine/openingceremony_report",
+          "publishedAt": "2024-11-11",
+          "verifiedFact": "10月31日〜11月2日のグランドオープン記念行事の実施を報告。"
+        },
+        {
+          "title": "STATION Ai｜施設について",
+          "url": "https://stationai.co.jp/about",
+          "publishedAt": null,
+          "verifiedFact": "一般利用可能なカフェ・レストラン、ホテル、イベントスペース、あいち創業館を紹介。"
+        }
+      ],
+      "checkedAt": "2026-11-16",
+      "operator": "STATION Ai株式会社",
+      "scale": "オフィス、飲食、ホテル、イベントスペース、あいち創業館。企業参加数は変動。",
+      "milestones": [
+        {
+          "date": "2024-10-01",
+          "label": "会員向け開業",
+          "kind": "actual"
+        },
+        {
+          "date": "2024-10-31",
+          "label": "グランドオープン",
+          "kind": "actual"
+        },
+        {
+          "date": "2024-11-01",
+          "label": "一般利用開始",
+          "kind": "actual"
+        }
+      ],
+      "aliases": [
+        "鶴舞",
+        "仕事・交流拠点"
+      ],
+      "changes": [
+        {
+          "date": "2026-11-16",
+          "summary": "再開発ガイドに収録。資料の時点と予定・未定事項を分けて整理。"
+        }
+      ]
+    },
+    {
+      "id": "chikusa-station",
+      "title": "（仮称）千種駅前計画",
+      "area": "千種・東山",
+      "ward": "東区",
+      "category": "複合開発",
+      "status": "planning",
+      "statusLabel": "環境アセス手続き中",
+      "schedule": "2026年に方法書・方法意見書の手続き。説明会資料は2027〜2028年度着工・工期約4年を予定として示す。",
+      "summary": "積水ハウスによる店舗併設型共同住宅の計画。市公表の事業規模は高さ約190m、延べ面積約10万㎡。計画地は東区葵三丁目。",
+      "livingImpact": "駅近くの住まいと店舗の新設に関わる。歩道、風・日影、工事車両など生活環境への影響を、環境アセスの進行と合わせて確認する案件。",
+      "uncertainty": "方法書段階は着工承認や竣工の保証ではない。入居・店舗開業日は未確定。駅名に反して所在地は千種区ではなく東区。",
+      "officialSources": [
+        {
+          "title": "名古屋市｜千種駅前計画の環境アセスメント手続き",
+          "url": "https://www.city.nagoya.jp/shisei/keikaku/1008387/1008424/1008434/1008528/1040451/1040774.html",
+          "publishedAt": "2026-07-07",
+          "verifiedFact": "事業者、所在地、高さ約190m、延べ面積約10万㎡、方法書手続き状況を掲載。"
+        },
+        {
+          "title": "名古屋市｜千種駅前計画 方法書説明会の開催結果",
+          "url": "https://www.city.nagoya.jp/_res/projects/default_project/_page_/001/049/442/0420shiryo1.pdf",
+          "publishedAt": null,
+          "verifiedFact": "2026年3月23日説明会。事業者回答は2027〜2028年度着工予定、工期46か月。店舗は未定、大型スーパー等の予定なし。"
+        }
+      ],
+      "checkedAt": "2026-11-16",
+      "operator": "積水ハウス株式会社",
+      "scale": "計画高さ約190m、延べ面積約100,000㎡。",
+      "milestones": [
+        {
+          "date": "2025-09-05",
+          "label": "計画段階環境配慮書提出",
+          "kind": "actual"
+        },
+        {
+          "date": "2026-02-20",
+          "label": "環境影響評価方法書提出",
+          "kind": "actual"
+        },
+        {
+          "date": "2026-03-23",
+          "label": "方法書説明会開催",
+          "kind": "actual"
+        },
+        {
+          "date": "2027〜2028年度",
+          "label": "着工予定（説明会資料）",
+          "kind": "planned"
+        },
+        {
+          "date": "時期未定",
+          "label": "竣工・店舗開業日",
+          "kind": "undated"
+        }
+      ],
+      "aliases": [
+        "千種駅",
+        "住宅・駅前開発"
+      ],
+      "changes": [
+        {
+          "date": "2026-11-16",
+          "summary": "再開発ガイドに収録。資料の時点と予定・未定事項を分けて整理。"
+        }
+      ]
+    },
+    {
+      "id": "hoshigaoka-bowl-site",
+      "title": "星が丘ボウル跡地・星が丘テラス拡張",
+      "area": "千種・東山",
+      "ward": "千種区",
+      "category": "複合開発",
+      "status": "construction",
+      "statusLabel": "建設・段階開業予定",
+      "schedule": "一期は2027年春開業を目指す。星が丘プレイハウスは2027年7月1日開業予定。図書館は別工程。",
+      "summary": "商業・大学・広場・住宅を組み合わせる跡地開発。複合ビルと歩行者動線、芝生広場を整え、複合ビル6階には新劇場を計画している。",
+      "livingImpact": "買い物、学び、観劇、屋外での滞在を歩いてつなぐ計画。施設ごとに利用開始時期が異なるため、一括で完成扱いにしないことが大切。",
+      "uncertainty": "一期開業・劇場・図書館・住宅は工程が異なる。図書館は市の2028年度予定と事業者旧資料の2028年春表記に幅があり、具体日を確定表示しない。",
+      "officialSources": [
+        {
+          "title": "東山遊園｜星が丘ボウル跡地再開発情報 第三報",
+          "url": "https://www.hoshigaoka.co.jp/2010/",
+          "publishedAt": "2026-06-01",
+          "verifiedFact": "2027年春の一期開業を目指す。複合ビル・大学施設・歩行動線・広場を一体整備。"
+        },
+        {
+          "title": "東山遊園｜星が丘プレイハウス開業発表",
+          "url": "https://www.hoshigaoka.co.jp/2122/",
+          "publishedAt": "2026-08-24",
+          "verifiedFact": "複合ビル6階に最大121席、2027年7月1日開業予定。"
+        },
+        {
+          "title": "名古屋市｜星が丘図書館（仮称）内装整備事業",
+          "url": "https://www.city.nagoya.jp/kodomo/shougaigakushu/1015902/1048545.html",
+          "publishedAt": "2026-09-14",
+          "verifiedFact": "図書館の内装設計・施工事業者を公募・選定する別事業。"
+        },
+        {
+          "title": "名古屋市図書館｜星が丘図書館説明会案内",
+          "url": "https://www.library.city.nagoya.jp/img/oshirase/2025/shomu_202504_1_1.pdf",
+          "publishedAt": null,
+          "verifiedFact": "図書館を2028年度開館予定と記載。"
+        },
+        {
+          "title": "東山遊園 星が丘プレイハウス開業カウントダウンの発表",
+          "url": "https://www.hoshigaoka.co.jp/2267/",
+          "publishedAt": "2026-11-04",
+          "verifiedFact": "2027年7月1日の開業予定と最大121席の計画を再掲。"
+        }
+      ],
+      "checkedAt": "2026-11-16",
+      "operator": "東山遊園・学校法人椙山女学園ほか",
+      "scale": "商業、大学、広場、住宅の複合開発。新劇場は最大121席。",
+      "milestones": [
+        {
+          "date": "2026-06-01",
+          "label": "一期整備の第三報公表",
+          "kind": "actual"
+        },
+        {
+          "date": "2026-08-24",
+          "label": "新劇場の開業日発表",
+          "kind": "actual"
+        },
+        {
+          "date": "2027年春",
+          "label": "一期開業目標",
+          "kind": "planned"
+        },
+        {
+          "date": "2027-07-01",
+          "label": "星が丘プレイハウス開業予定",
+          "kind": "planned"
+        },
+        {
+          "date": "2028年度",
+          "label": "星が丘図書館の市公表予定（別工程）",
+          "kind": "planned"
+        }
+      ],
+      "aliases": [
+        "星が丘",
+        "文化・複合開発"
+      ],
+      "changes": [
+        {
+          "date": "2026-11-16",
+          "summary": "再開発ガイドに収録。資料の時点と予定・未定事項を分けて整理。"
+        }
+      ]
+    },
+    {
+      "id": "higashiyama-regeneration",
+      "title": "東山動植物園再生プラン・第4期",
+      "area": "千種・東山",
+      "ward": "千種区",
+      "category": "公園・水辺",
+      "status": "planning",
+      "statusLabel": "段階整備の計画期間中",
+      "schedule": "第4期事業は2025〜2029年度。個別施設の公開日は別に確認。",
+      "summary": "展示の魅力向上と来園者サービスの拡充に加え、環境保全や施設維持を進める5年間の計画。サバンナエリアと温室後館の整備を含む。",
+      "livingImpact": "園全体を一度に建て替える計画ではなく、訪れるたびに使える範囲が変わる段階整備。家族で出かける際は展示・園路の公開状況が実用情報になる。",
+      "uncertainty": "2029年度は第4期の計画最終年度で、園の再生全体が完了する年ではない。計画記載だけで各施設が公開済みとは扱わない。",
+      "operator": "名古屋市・東山動植物園",
+      "scale": "2025〜2029年度の5か年計画。展示・サービス・環境保全・維持管理が対象。",
+      "milestones": [
+        {
+          "date": "2025-03",
+          "label": "第4期事業計画の策定を発表",
+          "kind": "actual"
+        },
+        {
+          "date": "2025年度",
+          "label": "第4期の計画期間開始",
+          "kind": "actual"
+        },
+        {
+          "date": "2029年度",
+          "label": "第4期の計画最終年度",
+          "kind": "planned"
+        }
+      ],
+      "officialSources": [
+        {
+          "title": "東山動植物園｜2025〜2029年度の主な事業内容",
+          "url": "https://www.higashiyama.city.nagoya.jp/16_evolution/16_05business/index.html",
+          "publishedAt": null,
+          "verifiedFact": "第4期事業の期間、展示・サービス改善と維持管理の方針を掲載。"
+        },
+        {
+          "title": "名古屋市｜東山動植物園第4期計画の幹部会報告",
+          "url": "https://www.city.nagoya.jp/_res/projects/default_project/_page_/001/030/025/r070324kaigisiryou3.pdf",
+          "publishedAt": "2025-03-24",
+          "verifiedFact": "2025〜2029年度の5年間、サバンナエリア・温室後館の整備を計画。"
+        }
+      ],
+      "checkedAt": "2026-11-16",
+      "aliases": [
+        "東山",
+        "公園・学び"
+      ],
+      "changes": [
+        {
+          "date": "2026-11-16",
+          "summary": "再開発ガイドに収録。資料の時点と予定・未定事項を分けて整理。"
+        }
+      ]
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-11-16",
+      "summary": "主要24件を一次資料で整理。検索・年表・比較・保存と各案件の詳細ページを追加。名駅の工程見直し、金山の営業延長、博物館の再休館など、過去の予定と現在の案内を区別しました。"
+    }
+  ]
+}

@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://nagoya-ningen.pages.dev/annai/</loc>
+    <lastmod>2026-11-16</lastmod>
   </url>
   <url>
     <loc>https://nagoya-ningen.pages.dev/contact</loc>
@@ -11,13 +12,114 @@
   </url>
   <url>
     <loc>https://nagoya-ningen.pages.dev/</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-16</lastmod>
   </url>
   <url>
     <loc>https://nagoya-ningen.pages.dev/news</loc>
+    <lastmod>2026-11-16</lastmod>
   </url>
   <url>
     <loc>https://nagoya-ningen.pages.dev/topics/meieki-redevelopment/</loc>
     <lastmod>2026-11-13</lastmod>
+  </url>
+  <url>
+    <loc>https://nagoya-ningen.pages.dev/redevelopment/</loc>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://nagoya-ningen.pages.dev/redevelopment/meitetsu-nagoya/</loc>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://nagoya-ningen.pages.dev/redevelopment/linear-nagoya-station/</loc>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://nagoya-ningen.pages.dev/redevelopment/nagoya-east-square/</loc>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://nagoya-ningen.pages.dev/redevelopment/landmark-nagoya-sakae/</loc>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://nagoya-ningen.pages.dev/redevelopment/chunichi-building/</loc>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://nagoya-ningen.pages.dev/redevelopment/gatefront-hisaya/</loc>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://nagoya-ningen.pages.dev/redevelopment/old-education-center/</loc>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://nagoya-ningen.pages.dev/redevelopment/hisaya-south/</loc>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://nagoya-ningen.pages.dev/redevelopment/nishiki-two-seven/</loc>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://nagoya-ningen.pages.dev/redevelopment/fushimi-k-frontier/</loc>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://nagoya-ningen.pages.dev/redevelopment/asunal-kanayama/</loc>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://nagoya-ningen.pages.dev/redevelopment/kanayama-new-theater/</loc>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://nagoya-ningen.pages.dev/redevelopment/atsuta-mtg/</loc>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://nagoya-ningen.pages.dev/redevelopment/atsuta-shiki-theatre/</loc>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://nagoya-ningen.pages.dev/redevelopment/ig-arena/</loc>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://nagoya-ningen.pages.dev/redevelopment/mizuho-stadium/</loc>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://nagoya-ningen.pages.dev/redevelopment/nagoya-city-museum/</loc>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://nagoya-ningen.pages.dev/redevelopment/nagoya-racecourse-site/</loc>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://nagoya-ningen.pages.dev/redevelopment/minato-aquls-arena/</loc>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://nagoya-ningen.pages.dev/redevelopment/nakagawa-canal/</loc>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://nagoya-ningen.pages.dev/redevelopment/station-ai/</loc>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://nagoya-ningen.pages.dev/redevelopment/chikusa-station/</loc>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://nagoya-ningen.pages.dev/redevelopment/hoshigaoka-bowl-site/</loc>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://nagoya-ningen.pages.dev/redevelopment/higashiyama-regeneration/</loc>
+    <lastmod>2026-11-16</lastmod>
   </url>
 </urlset>

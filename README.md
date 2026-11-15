@@ -181,3 +181,26 @@ CSS・JavaScript・画像ファイル・実行scriptは変更なし。写真は�
 併せて[JR東海が11月10日に公表した中央東工区（3）の契約情報](https://company.jr-central.co.jp/chuoshinkansen/other/_pdf/261110.pdf)を反映しました。契約日は10月8日、工期は契約翌日から2032年12月31日までであり、全線の開業年を示すものではありません。従前の「2027年以降」を最新の開業見通しのように扱う説明は置き換えました。
 
 本文の4項目と説明用のCHECK表記は除去し、確認範囲・出典・結果へ差し替えました。主要事項再確認日は11月11日、その他の資料の確認日は各出典欄、初回公開日は10月31日として区別。出典は18件です。公開前検証で全7ページのSEO49項目と参照整合が合格し、実測1440・768・390・360px幅で横はみ出しがありません。CSS・JS・画像は公開版3747156から不変です。実デプロイと公開確認の結果は既存リリース記録へ追記します。
+
+## 2026-11-16 再開発・街の変化ガイド
+
+正規公開先は `https://nagoya-ningen.pages.dev/redevelopment/`。名古屋市内の主要24件・9エリアから始め、既存の名駅特集へ接続する。全16区・全事業の完全網羅とは表示しない。古い `website-renewal` 作業branchやGitHubの旧配信mainを、現在のCloudflare公開版へ一括統合しない。
+
+- `data/redevelopment.json` が編集データの正本。案件IDはURLになるため保持する。
+- `scripts/build_redevelopment.py` が一覧、案件別詳細、サイトマップを通信なしで生成する。配信時は生成済みHTMLを使い、サーバー側処理・新規依存・外部APIは不要。
+- 名称・地域・進捗・用途の検索、年表、最大3件の比較、ブラウザ内保存、条件共有を備える。保存一覧は端末内だけで、共有リンクには入れない。JavaScriptなしでも全案件と一次資料を読める。
+- 事実、資料の公表・更新日、確認日、今後の予定を分ける。`milestones.kind` は `actual` / `planned` / `undated`。予定日が過ぎても自動で完了へ変換しない。
+- `status` は `review` / `planning` / `construction` / `open`。`open` は完成・供用の集約で、暫定利用・一部開業・建物竣工などの違いは `statusLabel` と本文に明記する。
+- 出典には `title` / `url` / `publishedAt` / `verifiedFact` を持たせる。未確認の数字で空欄を埋めず、未定と確認できなかった範囲を区別する。次期開発と暫定施設、工区工期と路線開業を混同しない。
+
+更新時は、対象の公式発表・自治体資料を読み、該当案件の事実・予定・出典・`checkedAt`と`changes`を更新する。ガイド全体の`updatedAt`と`updates`も編集し、生成する。確認日の一括繰上げは禁止。確認後45日超のガイドには、ブラウザ側で最新公式資料の確認を促す表示が出る。自動収集・通知・定期再開は実装していない。
+
+```sh
+python3 scripts/build_redevelopment.py
+node --check js/redevelopment.mjs
+node --test tests/redevelopment-core.test.mjs
+PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p 'test_*.py' -v
+git diff --check
+```
+
+公開前に対象変更を独立確認し、外部通信を遮断した使い捨てChromeでローカル表示と変更箇所の動作を検証する。静的配信物はGitの確定commitから選別し、README・scripts・tests・Git・資格情報・私的記録を除外する。既存WranglerのPagesプロジェクト `nagoya-ningen` を使い、公開後は本番の応答と配信元の本文を照合する。最新の公開状態・検証結果・commitは運用側の既存リリース記録に残す。
